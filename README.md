@@ -53,13 +53,17 @@ The directory structure of new project looks like this:
 │
 ├── tests                       <- Various tests (unused for now)
 │
+├── personal_work               <- Temporary directory for M2 with individual work - can be safely ignored
+│
 ├── results.ipynb               <- a well-structured notebook showing the results
 │
 ├── .gitignore                  <- List of files ignored by git
 ├── pip_requirements.txt        <- File for installing python dependencies
+├── ada_p2_submission.pdf       <- Submission pdf
 └── README.md
+
 ```
 
 **Important note!**
 
-One of the additional datasets we are using is too large to be hosted on Git, and we cannot use Git LFS as the repository is tied to one owner - the organization. As such, please download it manually from here, and place the `rotten_tomatoes_movie_reviews.csv` under `data/raw/` 
+One of the additional datasets we are using is too large to be hosted on Git, and we cannot use Git LFS as the repository is tied to one owner - the organization. As such, please download it manually from [here](https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews), and place the `rotten_tomatoes_movie_reviews.csv` under `data/raw/` 
