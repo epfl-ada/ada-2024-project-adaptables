@@ -1,9 +1,11 @@
+import swifter
 from dataclasses import dataclass
 from functools import cached_property
 import pandas as pd
 from pathlib import Path
+import ast
 
-VALID_FILETYPES = [".csv",".tsv"]
+VALID_FILETYPES = [".csv",".tsv",".txt"]
 
 @dataclass
 class ProjectDataset:
@@ -38,7 +40,7 @@ class ProjectDataset:
         match p.suffix:
             case ".csv":
                 return ","
-            case ".tsv":
+            case ".tsv" | ".txt":
                 return "\t"
             
     
@@ -51,9 +53,27 @@ class ProjectDataset:
         with open(self.path,"r") as f:
             first_line = f.readline()
             has_headers = " " not in first_line and ("," in first_line or first_line.lower().isalpha()) 
-        
+
         return pd.read_csv(
             self.path,sep=self.__file_separator,
             header=0 if has_headers else None,
             names=self.columns_descriptions.keys()
         )
+
+
+def prepro_cmu_movies(movies_df: pd.DataFrame) -> pd.DataFrame:
+    new_df = movies_df.copy()
+    new_df["languages"] = new_df["languages"].swifter.apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
+    new_df["countries"] = new_df["countries"].swifter.apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
+    new_df["genres"] = new_df["genres"].swifter.apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
+    def parse_release_date(release_date_str):
+        # The release date is :
+        #       either empty
+        #       or YYYY
+        #       or YYYY-MM-DD
+        # --> since we're simply inetrested in the year, we can just take the first 4 characters  
+        if isinstance(release_date_str,float):
+            return release_date_str
+        return release_date_str.strip()[:4]
+    new_df["release_date"] = pd.to_numeric(new_df["release_date"].swifter.apply(parse_release_date), errors="coerce",downcast="unsigned") # this will set a NaN wherever we don't have a date
+    return new_df
