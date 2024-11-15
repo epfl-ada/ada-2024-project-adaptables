@@ -46,7 +46,7 @@ class ProjectDataset:
         return list(self.columns_descriptions.keys())
 
     @cached_property
-    def get_dataframe(self):
+    def df(self):
         # Infer if file has headers heuristically by looking if it the first line is a string with no spaces and commas
         with open(self.path,"r") as f:
             first_line = f.readline()
