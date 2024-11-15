@@ -13,3 +13,4 @@ swifter
 tqdm
 ipywidgets >= 8.1.5
 llmware
+prettytable
