@@ -10,7 +10,7 @@
 ############################
 
 # Name of website
-title: My website
+title: A comedy handbook
 
 # Your name to show in the footer
 author: Quentin GALLIEN, Victor GARVALOV, Théo LE BLAN, Arthur REMOVILLE, Caroline VERCHERE
@@ -108,7 +108,7 @@ footer-hover-col: "#0085A1"
 # instead of colour
 
 #navbar-img: "/assets/img/bgimage.png"
-#footer-img: "/assets/img/bgimage.png"
+footer-img: "/assets/img/wallpaperposters.jpg"
 #page-img: "/assets/img/bgimage.png"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
