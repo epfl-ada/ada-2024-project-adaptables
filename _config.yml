@@ -93,7 +93,7 @@ hover-col: "#2563EB"      # Darker blue for hover states
 navbar-col: "#111827"     # Slightly darker than page background
 navbar-text-col: "#E8E9EB"
 navbar-border-col: "#374151"  # Subtle border for definition
-footer-col: "#111827"     # Matching navbar
+# footer-col: "#111827"     # Matching navbar
 footer-text-col: "#9CA3AF"    # Slightly muted text for footer
 footer-link-col: "#60A5FA"    # Matching main links
 footer-hover-col: "#E8E9EB"   # Light hover state
