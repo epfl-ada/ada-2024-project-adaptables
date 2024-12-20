@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The Comedy Conspiracy: A Data-Driven Mystery
+title: "The Comedy Conspiracy: A Data-Driven Mystery"
 ---
 
 ILLUSTRATION1
