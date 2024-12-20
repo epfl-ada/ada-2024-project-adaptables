@@ -34,7 +34,7 @@ While comedies are generally thought to spread joy, sentiment analysis shows the
 
 ## Act 2: The Case of the Missing Awards
 
-![ILLUSTRATION2](img/image1.png)
+![ILLUSTRATION2](/assets/img/clown_on_red_carpet.png)
 
 **Narrator:** "Comedies rarely walk the red carpet, but why? Our next stop takes us to the glamorous world of Oscars and critical acclaim." 
 
@@ -78,7 +78,7 @@ Despite differences in scale, one thing is clear: comedy consistently contribute
 
 ## Act 4: The Comedies Anatomy
 
-![ILLUSTRATION3](img/image1.png)
+![ILLUSTRATION3](/assets/img/Detective_and_chalkboard.png)
 
 **Narrator:** "With the bigger picture in focus, we dive into the finer details. What makes audiences laugh, and why does it work?"
 
@@ -169,7 +169,7 @@ Insights:
 
 ### Act 5, Scene 1: The Title Trap
 
-![ILLUSTRATION4](img/image1.png)
+![ILLUSTRATION4](/assets/img/Perfect_title.png)
 
 ****Detective:**"A title’s like a first impression, choose the right words, and you could get the audience attention before the first laugh."
 
@@ -185,7 +185,7 @@ Frequently occurring humor-related keywords, such as Adventure, Love, and Crazy,
 
 ### Act 5, Scene 2: Timing Is Everything !
 
-![ILLUSTRATION5](img/image1.png)
+![ILLUSTRATION5](/assets/img/Calendar_june.png)
 
 **Narrator:** "When it comes to box office success, timing can make or break a movie."
 
