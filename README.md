@@ -14,10 +14,11 @@ This repository contains the code used for our project titled "A comedy Handbook
 
 This project was run using Python 3.10.12. We cannot provide certainty that other versions will work (though anything newer should be fine). Some of our code elegantly uses Python's [pattern matching](https://peps.python.org/pep-0636/), which was introduced in 3.10. Earlier Python versions will therefore not work out of the box (but can be adapted by making very small changes).
 
-**Important note!** TODO host sur drive et `wget`
+**Important note!**
 
-One of the additional datasets we are using is too large to be hosted on Git, and we cannot use Git LFS as the repossitory is tied to one owner - the organization. As such, please download it manually from [here](https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews), and place the `rotten_tomatoes_movie_reviews.csv` under `data/raw/` 
+One of the additional datasets we are using is too large to be hosted on Git, and we cannot use Git LFS as the repossitory is tied to one owner - the organization. As such, please download it manually from [here](https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews), and place the `rotten_tomatoes_movie_reviews.csv` under `data/raw/`.
 
+Furthermore, the aforementionned file and some of the files needed to recreate our graphs (`data/processed/`) are too big for GitHub. We therefore saved them in a zip which you can download from [here](https://go.epfl.ch/adaptables_extra_files). Simply extract it (`unzip extra_files.zip`) inside the root directory, and all the files will place themselves. 
 
 ```bash
 # clone project

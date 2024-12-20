@@ -8,6 +8,7 @@ from ..data.project_dataset import ProjectDataset
 from .general_utils import all_valid,normalize_sa,zscore
 from pathlib import Path
 from datetime import datetime
+import numpy as np
 
 # ============ ============ ============ ============ ============ ============
 # Functions used to preprocess Massive Rotten Tomatoes reviews dataset
@@ -347,8 +348,21 @@ def calculate_revenues_per_year(movies_df, comedies_df):
     return revenues_per_year[revenues_per_year['release_date'] >= 1900]
 
 # ============ ============ ============ ============ ============ ============
-# Functions used to preprocess ..
+# Functions used to preprocess MRT Movies DS
 # ============ ============ ============ ============ ============ ============
+
+def data_corr_analysis(mrt_movies):
+    df_rotten_com = mrt_movies[mrt_movies['genre'].str.contains('comedy', case=False, na=False)]
+    filtered_rot = df_rotten_com.dropna(subset=['tomatoMeter', 'audienceScore']).copy()
+    filtered_rot['boxOffice'] = filtered_rot['boxOffice'].replace(['', ' ', 'N/A', 'null', 'NaN'], np.nan)
+
+    filtered_rot = df_rotten_com.dropna(subset=['boxOffice', 'audienceScore']).copy()
+    filtered_rot['tomatoMeter'] = filtered_rot['tomatoMeter'].replace(['', ' ', 'N/A', 'null', 'NaN', 'nan'], np.nan)
+
+    # Vérifier à nouveau et supprimer les NaN
+    filtered_rot = filtered_rot.dropna(subset=[ 'tomatoMeter']).copy()
+    return filtered_rot
+
 
 # ============ ============ ============ ============ ============ ============
 # Functions used to preprocess ..
