@@ -262,3 +262,33 @@ Interestingly, since the 1980s, the proportion of comedy movies released has bee
 *The screen fades to black, with the words: “Coming Soon: The Ultimate Comedy”*
 
 ## References
+
+CMU Movies Dataset
+Source: Carnegie Mellon University
+Description: A dataset containing approximately 80,000 movies with their metadata.
+Access: https://www.cs.cmu.edu/~ark/personas/
+
+CMU Characters Dataset
+Source: Carnegie Mellon University
+Description: A dataset containing over 450,000 movie characters with their descriptions.
+Access: https://www.cs.cmu.edu/~ark/personas/
+
+CMU Plots Dataset
+Source: Carnegie Mellon University
+Description: A dataset containing plot summaries for movies included in the CMU Movies Dataset.
+Access: https://www.cs.cmu.edu/~ark/personas/
+
+Massive Rotten Tomatoes Movie Metadata
+Source: Rotten Tomatoes
+Description: A dataset containing metadata for over 140,000 movies, including audience and critic scores.
+Access: https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews
+
+Extra Rotten Tomatoes Movies Dataset
+Source: Rotten Tomatoes
+Description: Additional information for approximately 12,000 major US movie releases between 1970 and 2024.
+Access: https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews
+
+Oscar Awards Dataset
+Source: The Academy Awards Database
+Description: A record of past Oscar winners and nominees from 1927 to 2024.
+Access: https://www.kaggle.com/datasets/pushpakhinglaspure/oscar-dataset
