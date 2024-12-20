@@ -147,6 +147,38 @@ def prepare_revenue_comparison_data(cmu_cleaned_movies):
     
     return country_comparison
 
+def get_comedies_mask(cmu_cleaned_movies): # cmu_comedies
+    # Returns the (boolean) comedy mask for the given df
+    # The `df` has to be of similar format as `prepro_cmu_movies(CMU_MOVIES_DS.df)`
+    return cmu_cleaned_movies["genres"].apply(lambda genre_list: "Comedy" in genre_list or "comedy" in genre_list)
+
+def explode_and_filter_comedy_genres(cmu_comedies): # comedy_genres
+    movies_exploded_genres = cmu_comedies.explode('genres')
+    comedy_genres = movies_exploded_genres[movies_exploded_genres['genres'].str.contains('Comedy', na=False)]
+    return comedy_genres
+
+def count_comedy_genres_by_release_and_genre(comedy_genres):
+    comedy_genres_count = comedy_genres.groupby(['release_date', 'genres']).size().reset_index(name='count')
+    return comedy_genres_count
+
+def assign_decade_to_genres(comedy_genres_count):
+    comedy_genres_count['decade'] = (comedy_genres_count['release_date'] // 10) * 10
+    return comedy_genres_count
+
+def count_genres_by_decade(comedy_genres_count):
+    decade_genre_counts = comedy_genres_count.groupby(['decade', 'genres'])['count'].sum().reset_index()
+    return decade_genre_counts
+
+def pivot_genre_data_by_decade(decade_genre_counts):
+    decade_genre_pivot = decade_genre_counts.pivot(index='decade', columns='genres', values='count').fillna(0)
+    if 'Comedy' in decade_genre_pivot.columns:
+        decade_genre_pivot = decade_genre_pivot.drop(columns='Comedy')
+    return decade_genre_pivot
+
+def calculate_genre_proportions(decade_genre_pivot): # decade_proportion
+    decade_proportion = decade_genre_pivot.div(decade_genre_pivot.sum(axis=1), axis=0)
+    return decade_proportion
+
 # ============ ============ ============ ============ ============ ============
 # Functions used to preprocess ..
 # ============ ============ ============ ============ ============ ============
