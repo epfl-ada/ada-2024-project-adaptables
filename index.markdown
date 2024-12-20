@@ -21,7 +21,7 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
   <img src="assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 200px; margin-left: 20px;">
 </div>
 
-GRAPHE1
+<iframe src="assets/data_story_graphs/1.html" width="100%" height="500" style="border:none;"></iframe>
 
 The correlation between the sentiment analysis mean scores and the ratings of the user is quite low (<0.4) and does not permit drawing conclusions on the accuracy of these factors to validate if a movie is ‘good’. Indeed, low correlation value and high spreading of the points show that a rating does not necessarily reflect the sentiment transmitted by the review. A bias that could have been expected would be to observe more positive sentiment for comedies than for other types of movies. Even though the 2 groups are significantly different, statistically speaking, comedies do not display much higher sentiment scores than other types of movies.
 
@@ -228,6 +228,10 @@ Interestingly, since the 1980s, the proportion of comedy movies released has bee
 
 
 ## Epilogue: The Prediction Machine
+
+<div style="text-align: center;">
+  <img src="assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 200px; margin-left: 20px;">
+</div>
 
 *The detective pins a final chart to the wall, a prediction model that takes all these factors into account.*
 
