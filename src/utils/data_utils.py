@@ -4,62 +4,9 @@ from functools import cached_property
 import pandas as pd
 from pathlib import Path
 import ast
-
-VALID_FILETYPES = [".csv",".tsv",".txt"]
-
-@dataclass
-class ProjectDataset:
-    # Helper class to represent one of our datasets and metadata regarding it
-    # 4 arguments :
-    #     - `path` is the path to the dataset
-    #     - `name` is how we decided to name the dataset, and how we will reference it in our Markdown explanations/report
-    #     - `description` is a brief description of the dataset
-    #     - `columns_descriptions` is a dictionnary containing all the columns of our dataset, as well as a short description for each of those columns
-
-
-    path:str
-    name:str
-    description:str
-    columns_descriptions:dict[str,str]
-
-    def __str__(self):
-        return self.name
-
-    def __post_init__(self):
-        p = Path(self.path)
-        if not p.exists():
-            raise ValueError(f"Path validation for {self}: {self.path} (-> {p.absolute().as_posix()}) does not exist!")
-        if not p.is_file():
-            raise ValueError(f"Path validation for {self}: {self.path} is not a file!")
-        if p.suffix not in VALID_FILETYPES:
-            raise ValueError(f"Path validation for {self}: {self.path} is not of the expected type (one of {', '.join(VALID_FILETYPES)}), but rather {p.suffix}!")
-
-    @cached_property
-    def __file_separator(self):
-        p = Path(self.path)
-        match p.suffix:
-            case ".csv":
-                return ","
-            case ".tsv" | ".txt":
-                return "\t"
-            
-    
-    def get_columns(self):
-        return list(self.columns_descriptions.keys())
-
-    @cached_property
-    def df(self):
-        # Infer if file has headers heuristically by looking if it the first line is a string with no spaces and commas
-        with open(self.path,"r") as f:
-            first_line = f.readline()
-            has_headers = " " not in first_line and ("," in first_line or first_line.lower().isalpha()) 
-
-        return pd.read_csv(
-            self.path,sep=self.__file_separator,
-            header=0 if has_headers else None,
-            names=self.columns_descriptions.keys()
-        )
-
+from ..data.project_dataset import ProjectDataset
+from .general_utils import all_valid,normalize_sa,zscore
+from pathlib import Path
 
 def prepro_cmu_movies(movies_df: pd.DataFrame) -> pd.DataFrame:
     new_df = movies_df.copy()
@@ -77,3 +24,67 @@ def prepro_cmu_movies(movies_df: pd.DataFrame) -> pd.DataFrame:
         return release_date_str.strip()[:4]
     new_df["release_date"] = pd.to_numeric(new_df["release_date"].swifter.apply(parse_release_date), errors="coerce",downcast="unsigned") # this will set a NaN wherever we don't have a date
     return new_df
+
+# ============
+# Functions used to preprocess Massive Rotten Tomatoes reviews dataset
+# ============
+
+def mrt_standardize_score(note):
+    if isinstance(note, str) and '/' in note:
+        try:
+            numerator, denominator = map(float, note.split('/'))
+            if denominator == 0:  
+                return None
+            if (numerator / denominator)<=1 :
+                return numerator / denominator
+        except (ValueError, TypeError): 
+            return None
+    else:
+        return None
+    
+def mrt_preprocess_df(df, col1, col2, merge_col, expert, comedy_ids:pd.Series, comedy: bool, use_zscore= False):
+    # Preprocesses the MRT df to get the standardized score only (z-score, or simply bounded between 0-1),
+    df = df[df['isTopCritic'] == expert].copy()
+    if comedy:
+        df = df[df[merge_col].isin(comedy_ids)]
+    else:
+        df = df[~df[merge_col].isin(comedy_ids)]
+
+    df[col1] = df[col1].apply(mrt_standardize_score)
+    df[col2] = zscore(df[col2]) if use_zscore else df[col2].apply(normalize_sa)
+        
+    df1 = df.groupby(merge_col)[col1].mean().reset_index()
+    df2 = df.groupby(merge_col)[col2].mean().reset_index()
+    df1 = df1.dropna()
+    df2 = df2.dropna()
+
+    return df1, df2 
+
+
+# =
+# Other
+# = 
+
+PREPROCESSED_DATA_DIR = "data/processed/"
+
+class ExtraDatasetInfo:
+    # This class will hold any additional information we infer from our base datasets
+    # Some of this took time (and resources) to compute, which is why we have cached it in the `data/processed` directory.
+    # If you wish to re-compute everything from scratch, set `preload` to false (NOT RECOMMENDED!) 
+    def __init__(self, mrt_movies_ds: ProjectDataset,preload=True):
+        all_valid(mrt_movies_ds)
+
+        if preload:
+            # The comedy ids in the massive rottent tomatoes dataset \inter CMU, where experts have given their opinions  
+            mrtexp_fpath = Path(PREPROCESSED_DATA_DIR+"ratings_expert.csv") 
+            assert mrtexp_fpath.exists() and mrtexp_fpath.is_file()
+            self.mrt_cmu_expertrevd_comedy_ids = pd.read_csv(mrtexp_fpath.absolute().as_posix())["id"]
+        
+            # The massive RT dataset, extended with a sentiment analysis score for the entries with a review (~1.3M out of the 1.4M reviews):
+            mrtsa_fpath = Path(PREPROCESSED_DATA_DIR+"reviews_with_compound.csv") 
+            assert mrtsa_fpath.exists() and mrtsa_fpath.is_file()
+            self.mrtrev_sa_df = pd.read_csv(mrtsa_fpath.absolute().as_posix())
+        else:
+            raise ValueError("See ./data/preprocessed/README.md for an indication on how to recreate the preloaded data")
+
+

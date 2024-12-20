@@ -7,15 +7,17 @@ ADAptables :
 
 Arthur Removille, Caroline Verchère, Quentin Gallien, Théo Le Blan, Victor Garvalov
 
-## Project presentation - Abstract
-Laughter. This great human sentiment that surrounds us from a very early age is a crucial aspect in cinematography and even has its own genre associated – comedies. Do you remember chuckling at the latest Hangover ? Do you also remember being bored out of your mind when watching The Emoji Movie ? Both movies are comedies, yet one was much “better” than the other. In this project, we aim to determine what factors make for a great comedy in order to better understand this phenomenon. We will explore four main aspects, namely what makes a movie popular, what makes it qualitative, whether there are cultural aspects influencing this, and to what extent are each of these factors unique to our genre of interest.
-
-
 ## Repository presentation
-
-In this repository, you will find all the code and data for our project.
+This repository contains the code used for our project titled "A comedy Handbook". You can read the data story [here](https://epfl-ada.github.io/ada-2024-project-adaptables/). All the code used to generate the various graphs and conclusions in it can be obtained by reading through the [results notebook](results.ipynb).
 
 ## Quickstart
+
+This project was run using Python 3.10.12. We cannot provide certainty that other versions will work (though anything newer should be fine). Some of our code elegantly uses Python's [pattern matching](https://peps.python.org/pep-0636/), which was introduced in 3.10. Earlier Python versions will therefore not work out of the box (but can be adapted by making very small changes).
+
+**Important note!** TODO host sur drive et `wget`
+
+One of the additional datasets we are using is too large to be hosted on Git, and we cannot use Git LFS as the repossitory is tied to one owner - the organization. As such, please download it manually from [here](https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews), and place the `rotten_tomatoes_movie_reviews.csv` under `data/raw/` 
+
 
 ```bash
 # clone project
@@ -43,27 +45,23 @@ The directory structure of new project looks like this:
 ```
 ├── data                        <- Datasets
 │   ├── raw                             <- raw files (for subset of smaller datasets)
-│   ├── cleaned                         <- cleaned/pre-processed datasets
+│   ├── processed                       <- pre-processed datasets (see below)
 │
 ├── src                         <- Source code
 │   ├── data                            <- Dataloaders/datamodules code 
-│   ├── models                          <- Model directory (unused for now)
-│   ├── utils                           <- Utility directory (unused for now)
-│   ├── scripts                         <- Shell scripts (unused for now)
+│   ├── models                          <- Model directory (TODO: custom KeyBert)
+│   ├── plots                           <- Utilitary functions used to generate all our plots
+│   ├── scripts                         <- Python scripts used to recreate some of the pre-processed data (see below)
+│   ├── utils                           <- Utility directory
 │
-├── tests                       <- Various tests (unused for now)
+├── personal_work               <- Temporary directory for M2 with individual work - can be safely ignored (TODO remove)
 │
-├── personal_work               <- Temporary directory for M2 with individual work - can be safely ignored
-│
-├── results.ipynb               <- a well-structured notebook showing the results
+├── results.ipynb               <- The main notebook showing the results and conclusions used in our data story
 │
 ├── .gitignore                  <- List of files ignored by git
 ├── pip_requirements.txt        <- File for installing python dependencies
-├── ada_p2_submission.pdf       <- Submission pdf
 └── README.md
 
 ```
 
-**Important note!**
-
-One of the additional datasets we are using is too large to be hosted on Git, and we cannot use Git LFS as the repository is tied to one owner - the organization. As such, please download it manually from [here](https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews), and place the `rotten_tomatoes_movie_reviews.csv` under `data/raw/` 
+The `data/processed` folder contains some intermediate pre-computed data which takes more time to get. See its [README](data/processed/README.md) to understand what to do to recreate it.  
