@@ -22,10 +22,12 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 </div>
 
 
-<iframe src="assets/data_story_graphs/1_1.html" style="width: 100%; height: 500px; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/1_2.html" style="width: 100%; height: 500px; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/1_3.html" style="width: 100%; height: 500px; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/1_4.html" style="width: 100%; height: 500px; border: none;"></iframe>
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+    <iframe src="assets/data_story_graphs/1_1.html" style="width: 100%; height: 500px; border: none;"></iframe>
+    <iframe src="assets/data_story_graphs/1_2.html" style="width: 100%; height: 500px; border: none;"></iframe>
+    <iframe src="assets/data_story_graphs/1_3.html" style="width: 100%; height: 500px; border: none;"></iframe>
+    <iframe src="assets/data_story_graphs/1_4.html" style="width: 100%; height: 500px; border: none;"></iframe>
+</div>
 
 
 The correlation between the sentiment analysis mean scores and the ratings of the user is quite low (<0.4) and does not permit drawing conclusions on the accuracy of these factors to validate if a movie is ‘good’. Indeed, low correlation value and high spreading of the points show that a rating does not necessarily reflect the sentiment transmitted by the review. A bias that could have been expected would be to observe more positive sentiment for comedies than for other types of movies. Even though the 2 groups are significantly different, statistically speaking, comedies do not display much higher sentiment scores than other types of movies.
@@ -249,18 +251,11 @@ Interestingly, since the 1980s, the proportion of comedy movies released has bee
 
 **Detective:** "After unraveling the numbers, the themes, and the trends, it’s clear that crafting a successful comedy is both an art and a science. From timeless themes like love that resonates with audiences across decades, to the importance of timing, titles, and cultural context, the formula is anything but simple. A strong collaboration behind the scenes and a balance between audience and critic expectations are key ingredients. While sequels often fails, the right mix of originality and familiarity can keep the comedy genre going. Remember, comedy may be subjective, but if you get it right, the rewards are universal. Case closed !"
 
-<hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
-
-
-## Epilogue: The Prediction Machine
-
 <div style="text-align: center;">
   <img src="assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 200px; margin-left: 20px;">
 </div>
 
-*The detective pins a final chart to the wall, a prediction model that takes all these factors into account.*
-
-**Detective:** “We’ve cracked the case. Now, let’s test it. Who’s ready to laugh?”
+<hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
 
 *The screen fades to black, with the words: “Coming Soon: The Ultimate Comedy”*
 
