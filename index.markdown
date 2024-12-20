@@ -22,16 +22,16 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 </div>
 
 
-<iframe src="assets/data_story_graphs/graph1_1.html" style="width: 100%; height: 100%; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/graph1_2.html" style="width: 100%; height: 100%; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/graph1_3.html" style="width: 100%; height: 100%; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/graph1_4.html" style="width: 100%; height: 100%; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/1_1.html" style="width: 500px; height: 200px; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/1_2.html" style="width: 100%; height: 100%; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/1_3.html" style="width: 100%; height: 100%; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/1_4.html" style="width: 100%; height: 100%; border: none;"></iframe>
 
 
 The correlation between the sentiment analysis mean scores and the ratings of the user is quite low (<0.4) and does not permit drawing conclusions on the accuracy of these factors to validate if a movie is ‘good’. Indeed, low correlation value and high spreading of the points show that a rating does not necessarily reflect the sentiment transmitted by the review. A bias that could have been expected would be to observe more positive sentiment for comedies than for other types of movies. Even though the 2 groups are significantly different, statistically speaking, comedies do not display much higher sentiment scores than other types of movies.
 
-<iframe src="assets/data_story_graphs/graph2_1.html" style="width: 100%; height: 100%; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/graph2_2.html" style="width: 100%; height: 100%; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/2_1.html" style="width: 100%; height: 100%; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/2_2.html" style="width: 100%; height: 100%; border: none;"></iframe>
 
 
 **Detective:** “So you’re telling me people’s feelings don’t always match the stars they give? The correlation’s barely scratching 0.4. That’s... fishy.” 
