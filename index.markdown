@@ -135,7 +135,7 @@ Evolution of movie topics
 For a producer aiming to maximize box office revenues, focusing on a comedy with a *love* theme is a statistically safer bet than a comedy centered around the gender theme. While a gender-themed comedy can still achieve success, romantic comedies have a higher probability of thriving at the box office, making them a more reliable choice for financial success.
 
 <div style="text-align: center;">
-  <img src="assets/data_story_graphs/heatmap_nombre_apparition_combinaisons_genre.png" alt="Illustration6" width="400">
+  <img src="assets/data_story_graphs/heatmap_nombre_apparition_combinaisons_genre.png" alt="Illustration6" width="800">
 </div>
 
 The heatmap illustrates the frequency of sub-genre combinations in comedy movies, with darker colors representing lower occurrences and brighter colors indicating higher occurrences.
@@ -162,20 +162,22 @@ The success of comedy genres varies significantly based on the cultural and regi
 Average revenue of the duos with most collaborations
 
 <div style="text-align: center;">
-  <img src="assets/data_story_graphs/newplot2.png" alt="Illustration6" width="600">
+  <img src="assets/data_story_graphs/newplot2.png" alt="Illustration6" width="1000">
 </div>
 
 One-time duos that generated more revenues 
 
 <div style="text-align: center;">
-  <img src="assets/data_story_graphs/newplot.png" alt="Illustration6" width="600">
-</div>
-
-<div style="text-align: center;">
-  <img src="assets/data_story_graphs/newplot5.png" alt="Illustration6" width="600">
+  <img src="assets/data_story_graphs/newplot.png" alt="Illustration6" width="1000">
 </div>
 
 The most successful comedies aren’t necessarily those featuring recurring duos. Instead, for pairs that have collaborated in only one movie, the same names appear repeatedly : Johnny Depp, Keith Richards, Greg Ellis… 
+
+<div style="text-align: center;">
+  <img src="assets/data_story_graphs/newplot5.png" alt="Illustration6" width="1000">
+</div>
+
+
 
 We can conclude that success isn’t limited to acting alone, music and direction also play integral roles in creating hit films.
 
@@ -186,7 +188,7 @@ We can conclude that success isn’t limited to acting alone, music and directio
 **Detective:** "Sequels often face a tough crowd. Can they maintain the magic of the original?"
 
 <div style="text-align: center;">
-  <img src="assets/data_story_graphs/newplot4.png" alt="Illustration6" width="600">
+  <img src="assets/data_story_graphs/newplot4.png" alt="Illustration6" width="1000">
 </div>
 
 Evolution of audience scores for some movies and their sequels
@@ -198,7 +200,7 @@ Features:
 The data reveals a common trend: sequels often experience a decline in popularity over time, reflected in progressively lower audience scores.
 
 <div style="text-align: center;">
-  <img src="assets/data_story_graphs/output6.png" alt="Illustration6" width="600">
+  <img src="assets/data_story_graphs/output6.png" alt="Illustration6" width="800">
 </div>
 
 The dynamic graph charts the evolution of audience scores across movie franchises and their sequels. On the horizontal axis, we see movie titles paired with their release years, while the vertical axis tracks audience scores. Each point represents a sequel group, with bubble sizes reflecting the number of films in each category.
@@ -228,7 +230,7 @@ Insights:
 Titles have the unique challenge of encapsulating a movie's essence in just a handful of words. In comedy, certain keywords not only resonate deeply with audiences but also appear consistently in the titles of successful films.
 
 <div style="text-align: center;">
-  <img src="assets/data_story_graphs/newplot3.png" alt="Illustration6" width="600">
+  <img src="assets/data_story_graphs/newplot3.png" alt="Illustration6" width="1000">
 </div>
 
 The graph highlights popular words from comedy titles, with the size of each point representing the frequency of that word in successful films. The X and Y axes organize these words by their meanings, forming clusters of similar themes.
