@@ -94,9 +94,9 @@ navbar-col: "#111827"     # Slightly darker than page background
 navbar-text-col: "#E8E9EB"
 navbar-border-col: "#374151"  # Subtle border for definition
 # footer-col: "#111827"     # Matching navbar
-footer-text-col: "#9CA3AF"    # Slightly muted text for footer
+footer-text-col: "#E8E9EB"    # Slightly muted text for footer
 footer-link-col: "#60A5FA"    # Matching main links
-footer-hover-col: "#E8E9EB"   # Light hover state
+footer-hover-col: "#374151"   # Light hover state
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
