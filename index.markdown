@@ -2,7 +2,6 @@
 layout: default
 title: The Comedy Conspiracy: A Data-Driven Mystery
 ---
-# The Comedy Conspiracy: A Data-Driven Mystery
 
 ILLUSTRATION1
 
