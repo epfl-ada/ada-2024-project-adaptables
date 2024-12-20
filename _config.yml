@@ -11,13 +11,9 @@
 
 # Name of website
 title: "A comedy handbook"
-navigation:
-  - title: Blah Blah
-    url: /index.html
 # Your name to show in the footer
-author: Quentin GALLIEN, Victor GARVALOV, Théo LE BLAN, Arthur REMOVILLE, Caroline VERCHERE
-
-title_separator          : "-"
+author: "Quentin GALLIEN, Victor GARVALOV, Théo LE BLAN, Arthur REMOVILLE, Caroline VERCHERE"
+title_separator          : " - "
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
@@ -27,7 +23,6 @@ navbar-links:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - EPFL CS-401 Applied Data Analysis: "https://epfl-ada.github.io/teaching/fall2024/cs401/"
     - Project ADAptables git repository: "https://github.com/epfl-ada/ada-2024-project-adaptables/tree/main"
-
 
 ################
 # --- Logo --- #
@@ -91,17 +86,17 @@ navbar-var-length: false
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-page-col: "#111111"
-text-col: "#FFFFFF"
-link-col: "#008AFF"
-hover-col: "#000000"
-# navbar-col: "#000000"
-navbar-text-col: "#FFFFFF"
-navbar-border-col: "#000000"
-footer-col: "#000000"
-footer-text-col: "#000000"
-footer-link-col: "#008AFF"
-footer-hover-col: "#FFFFFF"
+page-col: "#1A1B1E"       # A softer dark gray for the main background
+text-col: "#E8E9EB"       # Slightly off-white for better eye comfort
+link-col: "#60A5FA"       # A softer blue that's still visible
+hover-col: "#2563EB"      # Darker blue for hover states
+navbar-col: "#111827"     # Slightly darker than page background
+navbar-text-col: "#E8E9EB"
+navbar-border-col: "#374151"  # Subtle border for definition
+footer-col: "#111827"     # Matching navbar
+footer-text-col: "#9CA3AF"    # Slightly muted text for footer
+footer-link-col: "#60A5FA"    # Matching main links
+footer-hover-col: "#E8E9EB"   # Light hover state
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
