@@ -3,7 +3,9 @@ layout: default
 title: "The Comedy Conspiracy: A Data-Driven Mystery"
 ---
 
-![ILLUSTRATION1](/assets/img/image1.png)
+<div style="text-align: center;">
+  <img src="/assets/img/image1.png" alt="Illustration1" width="300">
+</div>
 
 #### “ What makes a comedy great ? ”
 
@@ -15,7 +17,9 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 
 ### Act 1, Scene 1: The Sentiment Sleuths
 
-![CARTOON1](/assets/img/detective_sticker.png)
+<div style="text-align: center;">
+  <img src="/assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 100px; margin-left: 20px;">
+</div>
 
 GRAPHE1
 
@@ -34,7 +38,9 @@ While comedies are generally thought to spread joy, sentiment analysis shows the
 
 ## Act 2: The Case of the Missing Awards
 
-![ILLUSTRATION2](/assets/img/clown_on_red_carpet.png)
+<div style="text-align: center;">
+  <img src="/assets/img/clown_on_red_carpet.png" alt="Illustration3" width="300">
+</div>
 
 **Narrator:** "Comedies rarely walk the red carpet, but why? Our next stop takes us to the glamorous world of Oscars and critical acclaim." 
 
@@ -78,7 +84,9 @@ Despite differences in scale, one thing is clear: comedy consistently contribute
 
 ## Act 4: The Comedies Anatomy
 
-![ILLUSTRATION3](/assets/img/Detective_and_chalkboard.png)
+<div style="text-align: center;">
+  <img src="/assets/img/Detective_and_chalkboard.png" alt="Illustration4" width="300">
+</div>
 
 **Narrator:** "With the bigger picture in focus, we dive into the finer details. What makes audiences laugh, and why does it work?"
 
@@ -169,7 +177,9 @@ Insights:
 
 ### Act 5, Scene 1: The Title Trap
 
-![ILLUSTRATION4](/assets/img/Perfect_title.png)
+<div style="text-align: center;">
+  <img src="/assets/img/Perfect_title.png" alt="Illustration5" width="300">
+</div>
 
 ****Detective:**"A title’s like a first impression, choose the right words, and you could get the audience attention before the first laugh."
 
@@ -185,7 +195,9 @@ Frequently occurring humor-related keywords, such as Adventure, Love, and Crazy,
 
 ### Act 5, Scene 2: Timing Is Everything !
 
-![ILLUSTRATION5](/assets/img/Calendar_june.png)
+<div style="text-align: center;">
+  <img src="/assets/img/Calendar_june.png" alt="Illustration6" width="300">
+</div>
 
 **Narrator:** "When it comes to box office success, timing can make or break a movie."
 
