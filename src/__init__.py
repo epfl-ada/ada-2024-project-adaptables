@@ -10,6 +10,7 @@ from .utils.general_utils import display_all_plotly_figures as show_all
 from .plots.oscars import osc_get_awrd_win_prop, osc_get_awrd_win_comp, osc_get_prop_bo_per_country, osc_get_total_bo_per_country
 from .plots.genres import cmu_get_genres_split
 from .plots.subgenres import cmu_subgenre_get_multi_pies
+from .plots.timely import cmu_monthly_get_rev,cmu_yearly_get_dual_trends
 
 # Constants
 # Dataset setups

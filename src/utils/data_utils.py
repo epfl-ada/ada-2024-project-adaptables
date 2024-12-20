@@ -7,6 +7,7 @@ import ast
 from ..data.project_dataset import ProjectDataset
 from .general_utils import all_valid,normalize_sa,zscore
 from pathlib import Path
+from datetime import datetime
 
 # ============ ============ ============ ============ ============ ============
 # Functions used to preprocess Massive Rotten Tomatoes reviews dataset
@@ -230,6 +231,120 @@ def process_genre_by_country(cmu_comedy_movies, genres_per_country=10):
     
     return genre_by_country_filtered, top_countries, sorted(list(all_top_genres)), revenue_by_country
 
+
+def clean_movie_data(df): # release_month_movies
+    """
+    Clean movie dataset by extracting:
+    - Release month
+    - Movie title
+    - Box office revenue
+    - Country (first one if multiple)
+    - Genres (as a list)
+    
+    Parameters:
+    df (pandas.DataFrame): Input DataFrame with movie data
+    
+    Returns:
+    pandas.DataFrame: Cleaned DataFrame with selected columns, excluding rows with unknown release month or box office
+    """
+    cleaned_df = df.copy()
+
+    def get_month(date_str):
+        try:
+            if pd.isna(date_str):
+                return None
+            return datetime.strptime(date_str, '%Y-%m-%d').strftime('%B')
+        except:
+            return None
+
+    def extract_country(countries_str):
+        try:
+            if pd.isna(countries_str):
+                return None
+            countries_dict = ast.literal_eval(countries_str)
+            return list(countries_dict.values())[0]
+        except:
+            return None
+
+    def extract_genres(genres_str):
+        try:
+            if pd.isna(genres_str):
+                return []
+            genres_dict = ast.literal_eval(genres_str)
+            return list(genres_dict.values())
+        except:
+            return []
+
+    cleaned_df['release_month'] = cleaned_df['release_date'].apply(get_month)
+    cleaned_df['country'] = cleaned_df['countries'].apply(extract_country)
+    cleaned_df['genres_list'] = cleaned_df['genres'].apply(extract_genres)
+    cleaned_df['box_office_revenue'] = pd.to_numeric(cleaned_df['box_office_revenue'], errors='coerce')
+    cleaned_df = cleaned_df.dropna(subset=['release_month', 'box_office_revenue'])
+
+    result_df = cleaned_df[[
+        'title',
+        'release_month',
+        'box_office_revenue',
+        'country',
+        'genres_list'
+    ]].copy()
+    
+    return result_df
+
+def calculate_monthly_stats(releases_monthly, comedy_only=False):
+    """
+    Calculate average monthly box office revenue for movies
+    
+    Parameters:
+    df (pandas.DataFrame): Cleaned movie DataFrame
+    comedy_only (bool): If True, only consider comedy movies
+    
+    Returns:
+    pandas.DataFrame: Monthly average revenues
+    """
+    if comedy_only:
+        releases_monthly = releases_monthly[releases_monthly['genres_list'].apply(lambda x: 'Comedy' in x)]
+
+    monthly_avg = releases_monthly.groupby('release_month')['box_office_revenue'].mean().reset_index()
+
+    month_order = ['January', 'February', 'March', 'April', 'May', 'June',
+                   'July', 'August', 'September', 'October', 'November', 'December']
+    monthly_avg['release_month'] = pd.Categorical(monthly_avg['release_month'], 
+                                                categories=month_order, 
+                                                ordered=True)
+    monthly_avg = monthly_avg.sort_values('release_month')
+    
+    return monthly_avg
+
+def get_movies_per_year(cmu_cleaned_movies,cmu_comedies): # movies_per_year
+    total_movies_per_year = cmu_cleaned_movies.groupby('release_date').size().reset_index(name='movie_count')
+    comedy_count_by_year = cmu_comedies.groupby('release_date').size().reset_index(name='comedy_count')
+    movies_per_year = pd.merge(total_movies_per_year, comedy_count_by_year, on='release_date', how='left')
+    movies_per_year['comedy_count'] = movies_per_year['comedy_count'].fillna(0)
+        
+    movies_per_year['comedy_proportion'] = movies_per_year['comedy_count'] / movies_per_year['movie_count']
+
+    return movies_per_year[movies_per_year['release_date'] >= 1900]
+
+
+def calculate_revenues_per_year(movies_df, comedies_df):
+    """
+    Calculates the total and comedy revenues per year, and the proportion of comedy revenues.
+    
+    Args:
+        movies_df (DataFrame): DataFrame with all movies, containing 'release_date' and 'box_office_revenue'.
+        comedies_df (DataFrame): DataFrame with comedy movies, containing 'release_date' and 'box_office_revenue'.
+    
+    Returns:
+        DataFrame: DataFrame with year, total revenue, comedy revenue, and comedy revenue proportion.
+    """
+    total_revenues_per_year = movies_df.groupby('release_date')['box_office_revenue'].sum().reset_index(name='total_revenue')
+    comedy_revenues_by_year = comedies_df.groupby('release_date')['box_office_revenue'].sum().reset_index(name='comedy_revenue')
+    revenues_per_year = pd.merge(total_revenues_per_year, comedy_revenues_by_year, on='release_date', how='left')
+    revenues_per_year['comedy_revenue'] = revenues_per_year['comedy_revenue'].fillna(0)
+    revenues_per_year['comedy_revenue'] = revenues_per_year['comedy_revenue'] / revenues_per_year['total_revenue']
+
+    return revenues_per_year[revenues_per_year['release_date'] >= 1900]
 
 # ============ ============ ============ ============ ============ ============
 # Functions used to preprocess ..
