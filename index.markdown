@@ -1,4 +1,4 @@
-# What Makes a Great Comedy?
+# A Comedy Handbook
 
 Laughter. This great human sentiment that surrounds us from a very early age is a crucial aspect of cinematography and even has its own genre associated – comedies. Do you remember chuckling at the latest *Hangover*? Do you also remember being bored when watching *The Emoji Movie*?
 
@@ -47,3 +47,5 @@ Finally, we investigate the timing of a movie’s release. Does the release mont
 By synthesizing all these factors, we aim to uncover the ultimate recipe for creating a successful comedy. Whether it's the plot, cast, timing, or cultural influences, each element contributes uniquely to the laughter that resonates with audiences worldwide.
 
 Let’s find out what makes us laugh!
+
+## References
