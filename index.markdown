@@ -32,8 +32,10 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 
 The correlation between the sentiment analysis mean scores and the ratings of the user is quite low (<0.4) and does not permit drawing conclusions on the accuracy of these factors to validate if a movie is ‘good’. Indeed, low correlation value and high spreading of the points show that a rating does not necessarily reflect the sentiment transmitted by the review. A bias that could have been expected would be to observe more positive sentiment for comedies than for other types of movies. Even though the 2 groups are significantly different, statistically speaking, comedies do not display much higher sentiment scores than other types of movies.
 
-<iframe src="assets/data_story_graphs/2_1.html" style="width: 100%; height: 500px; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/2_2.html" style="width: 100%; height: 500px; border: none;"></iframe>
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+    <iframe src="assets/data_story_graphs/2_1.html" style="width: 100%; height: 500px; border: none;"></iframe>
+    <iframe src="assets/data_story_graphs/2_2.html" style="width: 100%; height: 500px; border: none;"></iframe>
+</div>
 
 While comedies are generally thought to spread joy, sentiment analysis shows their emotional impact isn’t much higher than other genres. A low correlation between ratings and sentiment tells us that being “happy” doesn’t guarantee being “good.”
 
