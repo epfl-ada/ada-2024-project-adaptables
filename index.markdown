@@ -3,7 +3,7 @@ layout: default
 title: "The Comedy Conspiracy: A Data-Driven Mystery"
 ---
 
-![ILLUSTRATION1](img/image1.png)
+![ILLUSTRATION1](/assets/img/image1.png)
 
 #### “ What makes a comedy great ? ”
 
@@ -15,7 +15,7 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 
 ### Act 1, Scene 1: The Sentiment Sleuths
 
-![CARTOON1](img/detective_sticker.png)
+![CARTOON1](/assets/img/detective_sticker.png)
 
 GRAPHE1
 
