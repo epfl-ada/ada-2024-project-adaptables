@@ -76,9 +76,13 @@ To get a more balanced perspective, we examined the tradeoff between the total n
 
 ### Act 3, Scene 1: The Box Office Break-In
 
-<iframe src="assets/data_story_graphs/5.html" width="100%" height="500" style="border:none;"></iframe>
+<div style="transform: scale(0.7); transform-origin: top left; width: 100%; height: 500px; overflow: hidden;">
+<iframe src="assets/data_story_graphs/5.html" width="100%" height="100%" style="border:none;"></iframe>
+</div>
 
-<iframe src="assets/data_story_graphs/10.html" width="100%" height="500" style="border:none;"></iframe>
+<div style="transform: scale(0.7); transform-origin: top left; width: 100%; height: 500px; overflow: hidden;">
+<iframe src="assets/data_story_graphs/10.html" width="100%" height="100%" style="border:none;"></iframe>
+</div>
 
 **Analyst:** “The USA dominates in absolute dollars, but Serbia’s punching above its weight in comedy percentages. Small fish, big laughs.”
 
