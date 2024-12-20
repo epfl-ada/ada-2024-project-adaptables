@@ -115,8 +115,49 @@ The success of comedy genres varies significantly based on the cultural and regi
 
 ### Act 4, Scene 2: The Collaboration Chronicles
 
+**Detective:** “Comedy’s a team sport. Chemistry isn’t just on-screen—it’s behind the camera too.”
+
+Average revenue of the duos with most collaborations
+
+GRAPH12
+
+One-time duos that generated more revenues 
+
+GRAPH13
+
+GRAPH14
+
+The most successful comedies aren’t necessarily those featuring recurring duos. 
+
+Instead, for pairs that have collaborated in only one movie, the same names appear repeatedly : Johnny Depp, Keith Richards, Greg Ellis…
+
+We can conclude that success isn’t limited to acting alone, music and direction also play integral roles in creating hit films.
+
+
 ### Act 4, Scene 3: Don’t push your success too far !
 
+**Narrator:** "Sequels often face a tough crowd. Can they maintain the magic of the original?"
+
+GRAPH15
+
+Evolution of audience scores for some movies and their sequels
+
+Features:
+- Interactive movie selection: A dropdown menu allows to choose a specific movie, displaying its sequels and corresponding audience scores.
+- Trend visualization: The graph highlights how audience ratings evolve, from the original film to its sequels.
+
+The data reveals a common trend: sequels often experience a decline in popularity over time, reflected in progressively lower audience scores.
+
+GRAPH16
+
+The dynamic graph charts the evolution of audience scores across movie franchises and their sequels. On the horizontal axis, we see movie titles paired with their release years, while the vertical axis tracks audience scores. Each point represents a sequel group, with bubble sizes reflecting the number of films in each category.
+
+Insights:
+- The decline: Original films (Sequel 1) boast the highest average audience score (~67) across 89 films. However, Sequel 2 experiences a steep drop (~50), despite having an equally large sample size.
+- Survival of the fittest: Beyond Sequel 2, only the most successful franchises endure. By Sequel 3, the pool shrinks to just 14 films, and numbers dwindle further for Sequels 4 and 5.
+- Lessons from the data: Franchises often lose their charm with sequels, leading studios to discontinue less popular series. Yet, those that retain audience favor evolve into iconic multi-sequel sagas.
+
+**Detective:** "The numbers don’t lie—most sequels struggle to keep audiences entertained. But those that succeed? They redefine cinematic legacy."
 
 <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
 
@@ -125,7 +166,35 @@ The success of comedy genres varies significantly based on the cultural and regi
 
 ### Act 5, Scene 1: The Title Trap
 
+ILLUSTRATION4
+
+****Detective:**"A title’s like a first impression, choose the right words, and you could get the audience attention before the first laugh."
+
+Titles have the unique challenge of encapsulating a movie's essence in just a handful of words. In comedy, certain keywords not only resonate deeply with audiences but also appear consistently in the titles of successful films.
+
+GRAPH17
+
+The graph highlights popular words from comedy titles, with the size of each point representing the frequency of that word in successful films. The X and Y axes organize these words by their meanings, forming clusters of similar themes.
+
+Frequently occurring humor-related keywords, such as Adventure, Love, and Crazy, dominate the titles of hit comedies.
+
+**Analyst :** “Words like Love, Crazy, or Adventure don’t just describe the movie, they set the stage for success."
+
 ### Act 5, Scene 2: Timing Is Everything !
+
+ILLUSTRATION5
+
+**Narrator:** "When it comes to box office success, timing can make or break a movie."
+
+GRAPH18
+
+From the graph, it’s evident that releasing a movie in June significantly boosts its chances of performing well at the box office. This trend holds true not just for comedies but for films across all genres.
+
+GRAPH19
+
+Interestingly, since the 1980s, the proportion of comedy movies released has been relatively low compared to their contribution to box office revenues. This imbalance highlights the genre’s enduring popularity and profitability, showing that comedies remain a lucrative choice for filmmakers.
+
+**Detective:** "June’s the sweet spot—and comedy, it seems, has been pulling its weight and then some."
 
 
 <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
@@ -133,6 +202,12 @@ The success of comedy genres varies significantly based on the cultural and regi
 
 ## Act 6: The Big Reveal
 
+**Narrator:** "So, what’s the ultimate recipe for a blockbuster comedy? Here’s the dossier:"
+
+- Popularity Formula: Combine critical acclaim, audience ratings, and financial success.
+- Genres: Mix it up with hybrids that evolve with cultural trends.
+- Collaborations: Stick with creative teams that know their audience.
+- Titles & Timing: Nail the first impression and hit theaters when audiences are most receptive.
 
 <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
 
