@@ -134,7 +134,9 @@ Evolution of movie topics
 
 For a producer aiming to maximize box office revenues, focusing on a comedy with a *love* theme is a statistically safer bet than a comedy centered around the gender theme. While a gender-themed comedy can still achieve success, romantic comedies have a higher probability of thriving at the box office, making them a more reliable choice for financial success.
 
-GRAPH
+<div style="text-align: center;">
+  <img src="assets/data_story_graphs/heatmap_nombre_apparition_combinaisons_genre.png" alt="Illustration6" width="400">
+</div>
 
 The heatmap illustrates the frequency of sub-genre combinations in comedy movies, with darker colors representing lower occurrences and brighter colors indicating higher occurrences.
 Insight : The data reveals that certain sub-genre pairings, like romantic comedies or family-oriented films, are tried-and-true formulas in the domain. Less common combinations, such as comedies incorporating "Thriller" or "Crime," could offer opportunities for innovation but might also come with higher risks of negative reactions due to their niche nature.
