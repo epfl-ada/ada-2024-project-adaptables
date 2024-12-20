@@ -22,16 +22,16 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 </div>
 
 
-<iframe src="assets/data_story_graphs/1_1.html" style="width: 500px; height: 200px; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/1_2.html" style="width: 100%; height: 100%; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/1_3.html" style="width: 100%; height: 100%; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/1_4.html" style="width: 100%; height: 100%; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/1_1.html" style="width: 100%; height: 500px; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/1_2.html" style="width: 100%; height: 500px; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/1_3.html" style="width: 100%; height: 500px; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/1_4.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 
 The correlation between the sentiment analysis mean scores and the ratings of the user is quite low (<0.4) and does not permit drawing conclusions on the accuracy of these factors to validate if a movie is ‘good’. Indeed, low correlation value and high spreading of the points show that a rating does not necessarily reflect the sentiment transmitted by the review. A bias that could have been expected would be to observe more positive sentiment for comedies than for other types of movies. Even though the 2 groups are significantly different, statistically speaking, comedies do not display much higher sentiment scores than other types of movies.
 
-<iframe src="assets/data_story_graphs/2_1.html" style="width: 100%; height: 100%; border: none;"></iframe>
-<iframe src="assets/data_story_graphs/2_2.html" style="width: 100%; height: 100%; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/2_1.html" style="width: 100%; height: 500px; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/2_2.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 
 **Detective:** “So you’re telling me people’s feelings don’t always match the stars they give? The correlation’s barely scratching 0.4. That’s... fishy.” 
@@ -53,8 +53,8 @@ While comedies are generally thought to spread joy, sentiment analysis shows the
 
 ### Act 2, Scene 1: The Award Alibi
 
-<iframe src="assets/data_story_graphs/3.html" width="100%" height="100%" style="border:none;"></iframe>
-<iframe src="assets/data_story_graphs/4.html" width="100%" height="100%" style="border:none;"></iframe>
+<iframe src="assets/data_story_graphs/3.html" style="width: 100%; height: 500px; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/4.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 **Analyst:** “Look at this—100% of Oscar-winning films from Slovenia are comedies. Impressive, until you realize… they’ve only won one Oscar.”
 
@@ -74,8 +74,8 @@ To get a more balanced perspective, we examined the tradeoff between the total n
 
 ### Act 3, Scene 1: The Box Office Break-In
 
-<iframe src="assets/data_story_graphs/5.html" width="100%" height="100%" style="border:none;"></iframe>
-<iframe src="assets/data_story_graphs/10.html" width="100%" height="100%" style="border:none;"></iframe>
+<iframe src="assets/data_story_graphs/5.html" style="width: 100%; height: 500px; border: none;"></iframe>
+<iframe src="assets/data_story_graphs/10.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 **Analyst:** “The USA dominates in absolute dollars, but Serbia’s punching above its weight in comedy percentages. Small fish, big laughs.”
 
@@ -107,7 +107,7 @@ Despite differences in scale, one thing is clear: comedy consistently contribute
 
 **Narrator:** "Throughout the age of cinema the trends have evolved, we need to be up to date with the comedy movie landscape in order to make the best of the situation."
 
-<iframe src="assets/data_story_graphs/6.html" width="100%" height="100%" style="border:none;"></iframe>
+<iframe src="assets/data_story_graphs/6.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 
 We can see the evolution of the genres that can be found in comedy movies throughout the decades. The variety of genres associated with comedies have not stopped growing since the Hollywood golden age, while some genres are always well represented throughout the year such as comedy-drama there are some newcomers for example the 2010’s have seen the emergence of the Horror comedy genre.
@@ -134,7 +134,7 @@ GRAPH10
 
 **Detective:** “Genres evolve with the times and place. What worked in the ‘90s doesn’t always land today. In what environment do they evolve better?  You always need to learn and adapt from your environment.”
 
-<iframe src="assets/data_story_graphs/7.html" width="100%" height="100%" style="border:none;"></iframe>
+<iframe src="assets/data_story_graphs/7.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 The success of comedy genres varies significantly based on the cultural and regional context in which a movie is produced. For instance, if we aim to produce a successful comedy in the USA, a romantic comedy would maximize our chances of success. Conversely, in France, a comedy-drama would be the ideal choice, it certainly aligns better with the tastes of the French viewers. Understanding these regional nuances is crucial for tailoring comedic elements to the audience's cultural expectations.
 
@@ -227,12 +227,12 @@ Frequently occurring humor-related keywords, such as Adventure, Love, and Crazy,
 
 **Narrator:** "When it comes to box office success, timing can make or break a movie."
 
-<iframe src="assets/data_story_graphs/8.html" width="100%" height="100%" style="border:none;"></iframe>
+<iframe src="assets/data_story_graphs/8.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 
 From the graph, it’s evident that releasing a movie in June significantly boosts its chances of performing well at the box office. This trend holds true not just for comedies but for films across all genres.
 
-<iframe src="assets/data_story_graphs/9.html" width="100%" height="100%" style="border:none;"></iframe>
+<iframe src="assets/data_story_graphs/9.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 Interestingly, since the 1980s, the proportion of comedy movies released has been relatively low compared to their contribution to box office revenues. This imbalance highlights the genre’s enduring popularity and profitability, showing that comedies remain a lucrative choice for filmmakers.
 
