@@ -247,7 +247,7 @@ Interestingly, since the 1980s, the proportion of comedy movies released has bee
   <img src="assets/img/pic_conclu.png" alt="Illustration6" width="500">
 </div>
 
-**Detective:**** "After unraveling the numbers, the themes, and the trends, it’s clear that crafting a successful comedy is both an art and a science. From timeless themes like love that resonates with audiences across decades, to the importance of timing, titles, and cultural context, the formula is anything but simple. A strong collaboration behind the scenes and a balance between audience and critic expectations are key ingredients. While sequels often fails, the right mix of originality and familiarity can keep the comedy genre going. Remember, comedy may be subjective, but if you get it right, the rewards are universal. Case closed !"
+**Detective:** "After unraveling the numbers, the themes, and the trends, it’s clear that crafting a successful comedy is both an art and a science. From timeless themes like love that resonates with audiences across decades, to the importance of timing, titles, and cultural context, the formula is anything but simple. A strong collaboration behind the scenes and a balance between audience and critic expectations are key ingredients. While sequels often fails, the right mix of originality and familiarity can keep the comedy genre going. Remember, comedy may be subjective, but if you get it right, the rewards are universal. Case closed !"
 
 <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
 
