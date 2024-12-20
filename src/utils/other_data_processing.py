@@ -1,7 +1,29 @@
+# Due to lack of time, this file contains severa functions which were not modularized in the same way
+
+import pandas as pd
+from itertools import combinations
+import plotly.graph_objects as go
+import plotly.express as px
+import numpy as np
+import spacy
+from collections import Counter
+from sklearn.manifold import TSNE
+from IPython.display import clear_output
+import re
+
 ### ========================================================================================================================================
 
 ### TEAM COMPOSITION ANALYSIS
 ### ========================================================================================================================================
+
+def filter_comedy_movies(df):
+    # Filter for comedy genre
+    df_comedy = df[df['genre'].str.contains('comedy', case=False, na=False)]
+    
+    df_comedy = df_comedy[df_comedy['title'].notna() & (df_comedy['title'].str.strip() != "")]
+
+    return df_comedy
+
 
 def merge_movie_and_character_datasets(movies_df, characters_df):
     movies_filtered = movies_df[["wikipedia_id", "title", "box_office_revenue", "genres"]]
@@ -222,7 +244,6 @@ def plot_collaboration_vs_revenue_with_logscale(df):
 
 
 def data_for_best_2_collaboration(df1, df2):
-
     merge_df_final = process_and_merge_datasets(df1, df2)
     actor_revenue_stats_with_titles = compute_actor_pair_revenue_with_titles(merge_df_final)
     collaboration_df= actor_revenue_stats_with_titles[actor_revenue_stats_with_titles['CollaborationCount'] == 2]
@@ -244,7 +265,7 @@ def data_for_best_2_collaboration(df1, df2):
 def process_titles_and_visualize(df):
     # Load an NLP model to obtain word embeddings
 
-    df = filter_comedy_movies()
+    df = filter_comedy_movies(df)
     nlp = spacy.load("en_core_web_sm")
 
     # Clean titles: remove punctuation, stopwords, and tokenize
@@ -419,9 +440,8 @@ def extract_base_and_sequel(id_str):
 
 
 
-def data_part_1(df):
-
-    df_result, set_base = filter_comedy_movies_sequels(df)
+def data_part_1(mrt_df):
+    df_result, set_base = filter_comedy_movies_sequels(mrt_df)
     
     final_df = filter_dataframe(df_result, set_base)
     df_with_sequels = final_df.copy()
@@ -529,7 +549,7 @@ def plot_movie_suites(selected_title):
 
 from ipywidgets import interact
 
-def plot_movie_suites(selected_title):
+def plot_movie_suites(mrt_df,selected_title):
     if not selected_title:  # Ne rien afficher si aucun titre n'est sélectionné
         print("Please select a movie title.")
         return
@@ -537,7 +557,7 @@ def plot_movie_suites(selected_title):
     # Reste du code existant pour afficher le graphique
     # Clear previous output to avoid multiple graphs
     clear_output(wait=True)
-    
+    final_df = data_part_1(mrt_df)
     base_row = final_df[final_df['title'] == selected_title]
     if base_row.empty:
         print(f"Movie title '{selected_title}' not found in the dataset.")

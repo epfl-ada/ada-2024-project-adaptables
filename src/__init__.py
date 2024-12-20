@@ -13,6 +13,8 @@ from .plots.subgenres import cmu_subgenre_get_multi_pies
 from .plots.timely import cmu_monthly_get_rev,cmu_yearly_get_dual_trends
 from .plots.plot import cmu_plots_get_topic_distributions,cmu_plots_get_money_distr
 from .plots.rating import get_rt_audience_tomato_corr
+from .utils.other_data_processing import *
+from functools import partial
 
 # Constants
 # Dataset setups

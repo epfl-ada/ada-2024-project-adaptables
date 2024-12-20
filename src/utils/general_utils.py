@@ -23,10 +23,10 @@ def zscore(series: pd.Series) -> pd.Series:
     std_dev = series.std()
     return (series - mean) / std_dev
 
-def display_all_plotly_figures(fig_lst: list,i):
+def display_all_plotly_figures(fig_lst: list,i=0):
     if not cfg.USE_MATPLOTLIB:
         for f in fig_lst:
-            #f.show()
-            f.write_html(f"{i}.html", include_plotlyjs='cdn')
-            i+=1
+            f.show()
+            # f.write_html(f"{i}.html", include_plotlyjs='cdn')
+            # i+=1
     return i
