@@ -2,19 +2,23 @@
 
 # “What makes a comedy great?”
 
----
+<hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
 
 ## Act 1: The Mystery Unfolds
 
 ### Act 1, Scene 1: The Sentiment Sleuths
 
----
+
+***
+
 
 ## Act 2: The Case of the Missing Awards
 
 ### Act 2, Scene 1: The Award Alibi
 
+
 ---
+
 
 ## Act 3: The Measure of Success
 
@@ -22,7 +26,10 @@
 
 ### Act 3, Scene 2: The Popularity Analysis
 
----
+
+___
+
+
 
 ## Act 4: The Comedies Anatomy
 
