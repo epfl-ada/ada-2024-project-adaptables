@@ -10,13 +10,10 @@
 ############################
 
 # Name of website
-title: A comedy handbook
-navigation:
-  - title: A comedy handbook
-    url: /
+title: "A comedy handbook"
 # Your name to show in the footer
-author: Quentin GALLIEN, Victor GARVALOV, Théo LE BLAN, Arthur REMOVILLE, Caroline VERCHERE
-
+author: "Quentin GALLIEN, Victor GARVALOV, Théo LE BLAN, Arthur REMOVILLE, Caroline VERCHERE"
+title_separator          : " - "
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
@@ -26,7 +23,6 @@ navbar-links:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - EPFL CS-401 Applied Data Analysis: "https://epfl-ada.github.io/teaching/fall2024/cs401/"
     - Project ADAptables git repository: "https://github.com/epfl-ada/ada-2024-project-adaptables/tree/main"
-
 
 ################
 # --- Logo --- #
@@ -59,7 +55,7 @@ share-links-active:
 #url-pretty: "MyWebsite.com"
 
 # Add the website title to the title of every page
-title-on-all-pages: False
+title-on-all-pages: true
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
@@ -90,17 +86,17 @@ navbar-var-length: false
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-page-col: "#111111"
-text-col: "#FFFFFF"
-link-col: "#008AFF"
-hover-col: "#000000"
-# navbar-col: "#000000"
-navbar-text-col: "#FFFFFF"
-navbar-border-col: "#000000"
-footer-col: "#000000"
-footer-text-col: "#000000"
-footer-link-col: "#008AFF"
-footer-hover-col: "#FFFFFF"
+page-col: "#1A1B1E"       # A softer dark gray for the main background
+text-col: "#E8E9EB"       # Slightly off-white for better eye comfort
+link-col: "#60A5FA"       # A softer blue that's still visible
+hover-col: "#2563EB"      # Darker blue for hover states
+navbar-col: "#111827"     # Slightly darker than page background
+navbar-text-col: "#E8E9EB"
+navbar-border-col: "#374151"  # Subtle border for definition
+footer-col: "#111827"     # Matching navbar
+footer-text-col: "#9CA3AF"    # Slightly muted text for footer
+footer-link-col: "#60A5FA"    # Matching main links
+footer-hover-col: "#E8E9EB"   # Light hover state
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
@@ -146,20 +142,20 @@ kramdown:
   input: GFM
 
 # Default YAML values (more information on Jekyll's site)
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      comments: true  # add comments to all blog posts
-      social-share: true # add social media sharing buttons to all blog posts
-  -
-    scope:
-      path: "" # any file that's not a post will be a "page" layout by default
-    values:
-      layout: "page"
+# defaults:
+#   -
+#     scope:
+#       path: ""
+#       type: "posts"
+#     values:
+#       layout: "post"
+#       comments: true  # add comments to all blog posts
+#       social-share: true # add social media sharing buttons to all blog posts
+#   -
+#     scope:
+#       path: "" # any file that's not a post will be a "page" layout by default
+#     values:
+#       layout: "page"
 
 # Exclude these files from production site
 exclude:
@@ -175,6 +171,6 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-
+  
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189

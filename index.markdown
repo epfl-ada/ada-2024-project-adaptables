@@ -1,4 +1,7 @@
-# The Comedy Conspiracy: A Data-Driven Mystery
+---
+layout: default
+title: "The Comedy Conspiracy: A Data-Driven Mystery"
+---
 
 ILLUSTRATION1
 
