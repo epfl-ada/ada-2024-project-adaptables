@@ -7,4 +7,4 @@ COLOR_PALETTE = ["#88CCEE","#E69F00","#CC79A7","#F0E442","#009E73","#D55E00","#8
 class RunConfig:
     USE_MATPLOTLIB: bool
 
-NOTEBOOK_RUNCONFIG = RunConfig(True)
+NOTEBOOK_RUNCONFIG = RunConfig(False)
