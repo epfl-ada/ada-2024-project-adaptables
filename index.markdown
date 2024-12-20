@@ -15,7 +15,7 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 
 ### Act 1, Scene 1: The Sentiment Sleuths
 
-![CARTOON1](img/image1.png)
+![CARTOON1](img/detective_sticker.png)
 
 GRAPHE1
 
