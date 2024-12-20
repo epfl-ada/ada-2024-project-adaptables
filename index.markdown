@@ -4,7 +4,7 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 ---
 
 <div style="text-align: center;">
-  <img src="/assets/img/image1.png" alt="Illustration1" width="300">
+  <img src="assets/img/image1.png" alt="Illustration1" width="300">
 </div>
 
 #### “ What makes a comedy great ? ”
@@ -234,3 +234,5 @@ Interestingly, since the 1980s, the proportion of comedy movies released has bee
 **Detective:** “We’ve cracked the case. Now, let’s test it. Who’s ready to laugh?”
 
 *The screen fades to black, with the words: “Coming Soon: The Ultimate Comedy”*
+
+## References
