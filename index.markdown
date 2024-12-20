@@ -24,10 +24,10 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 <table>
   <tr>
     <td>
-      <iframe src="/assets/data_story_graphs/graph1_1.html" style="width: 100%; height: 400px; border: none;"></iframe>
+      <iframe src="assets/data_story_graphs/graph1_1.html" style="width: 100%; height: 400px; border: none;"></iframe>
     </td>
     <td>
-      <iframe src="/assets/data_story_graphs/graph1_2.html" style="width: 100%; height: 400px; border: none;"></iframe>
+      <iframe src="assets/data_story_graphs/graph1_2.html" style="width: 100%; height: 400px; border: none;"></iframe>
     </td>
   </tr>
 </table>
@@ -35,10 +35,10 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 <table>
   <tr>
     <td>
-      <iframe src="/assets/data_story_graphs/graph1_3.html" style="width: 100%; height: 400px; border: none;"></iframe>
+      <iframe src="assets/data_story_graphs/graph1_3.html" style="width: 100%; height: 400px; border: none;"></iframe>
     </td>
     <td>
-      <iframe src="/assets/data_story_graphs/graph1_4.html" style="width: 100%; height: 400px; border: none;"></iframe>
+      <iframe src="assets/data_story_graphs/graph1_4.html" style="width: 100%; height: 400px; border: none;"></iframe>
     </td>
   </tr>
 </table>
@@ -48,10 +48,10 @@ The correlation between the sentiment analysis mean scores and the ratings of th
 <table>
   <tr>
     <td>
-      <iframe src="/assets/data_story_graphs/graph2_1.html" style="width: 100%; height: 400px; border: none;"></iframe>
+      <iframe src="assets/data_story_graphs/graph2_1.html" style="width: 100%; height: 400px; border: none;"></iframe>
     </td>
     <td>
-      <iframe src="/assets/data_story_graphs/graph2_2.html" style="width: 100%; height: 400px; border: none;"></iframe>
+      <iframe src="assets/data_story_graphs/graph2_2.html" style="width: 100%; height: 400px; border: none;"></iframe>
     </td>
   </tr>
 </table>
@@ -134,8 +134,9 @@ Despite differences in scale, one thing is clear: comedy consistently contribute
 ### Act 4, Scene 1: The Genre & Topics Investigation
 
 **Narrator:** "Throughout the age of cinema the trends have evolved, we need to be up to date with the comedy movie landscape in order to make the best of the situation."
-
+<div style="text-align: center;">
 <iframe src="assets/data_story_graphs/6.html" width="100%" height="500" style="border:none;"></iframe>
+</div>
 
 We can see the evolution of the genres that can be found in comedy movies throughout the decades. The variety of genres associated with comedies have not stopped growing since the Hollywood golden age, while some genres are always well represented throughout the year such as comedy-drama there are some newcomers for example the 2010’s have seen the emergence of the Horror comedy genre.
 
@@ -161,7 +162,9 @@ GRAPH10
 
 **Detective:** “Genres evolve with the times and place. What worked in the ‘90s doesn’t always land today. In what environment do they evolve better?  You always need to learn and adapt from your environment.”
 
+<div style="text-align: center;">
 <iframe src="assets/data_story_graphs/7.html" width="100%" height="500" style="border:none;"></iframe>
+</div>
 
 The success of comedy genres varies significantly based on the cultural and regional context in which a movie is produced. For instance, if we aim to produce a successful comedy in the USA, a romantic comedy would maximize our chances of success. Conversely, in France, a comedy-drama would be the ideal choice, it certainly aligns better with the tastes of the French viewers. Understanding these regional nuances is crucial for tailoring comedic elements to the audience's cultural expectations.
 
@@ -254,11 +257,15 @@ Frequently occurring humor-related keywords, such as Adventure, Love, and Crazy,
 
 **Narrator:** "When it comes to box office success, timing can make or break a movie."
 
+<div style="text-align: center;">
 <iframe src="assets/data_story_graphs/8.html" width="100%" height="500" style="border:none;"></iframe>
+</div>
 
 From the graph, it’s evident that releasing a movie in June significantly boosts its chances of performing well at the box office. This trend holds true not just for comedies but for films across all genres.
 
+<div style="text-align: center;">
 <iframe src="assets/data_story_graphs/9.html" width="100%" height="500" style="border:none;"></iframe>
+</div>
 
 Interestingly, since the 1980s, the proportion of comedy movies released has been relatively low compared to their contribution to box office revenues. This imbalance highlights the genre’s enduring popularity and profitability, showing that comedies remain a lucrative choice for filmmakers.
 
