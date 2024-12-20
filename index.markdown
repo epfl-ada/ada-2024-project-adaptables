@@ -78,7 +78,7 @@ To get a more balanced perspective, we examined the tradeoff between the total n
 
 <iframe src="assets/data_story_graphs/5.html" width="100%" height="500" style="border:none;"></iframe>
 
-GRAPH
+<iframe src="assets/data_story_graphs/10.html" width="100%" height="500" style="border:none;"></iframe>
 
 **Analyst:** “The USA dominates in absolute dollars, but Serbia’s punching above its weight in comedy percentages. Small fish, big laughs.”
 
