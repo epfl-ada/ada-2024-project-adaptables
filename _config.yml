@@ -96,9 +96,9 @@ hover-col: "#000000"
 navbar-text-col: "#FFFFFF"
 navbar-border-col: "#000000"
 footer-col: "#000000"
-footer-text-col: "#FFFFFF"
+footer-text-col: "#000000"
 footer-link-col: "#008AFF"
-footer-hover-col: "#DDDDDD"
+footer-hover-col: "#FFFFFF"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
@@ -176,4 +176,3 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
-
