@@ -59,7 +59,7 @@ share-links-active:
 #url-pretty: "MyWebsite.com"
 
 # Add the website title to the title of every page
-title-on-all-pages: False
+title-on-all-pages: true
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
