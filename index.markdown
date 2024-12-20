@@ -21,19 +21,40 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
   <img src="assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 200px; margin-left: 20px;">
 </div>
 
-<iframe src="assets/data_story_graphs/1_1.html" width="100%" height="250" style="border:none;"></iframe>
+<table>
+  <tr>
+    <td>
+      <iframe src="/assets/data_story_graphs/graph1_1.html" style="width: 100%; height: 400px; border: none;"></iframe>
+    </td>
+    <td>
+      <iframe src="/assets/data_story_graphs/graph1_2.html" style="width: 100%; height: 400px; border: none;"></iframe>
+    </td>
+  </tr>
+</table>
 
-<iframe src="assets/data_story_graphs/1_2.html" width="100%" height="250" style="border:none;"></iframe>
-
-<iframe src="assets/data_story_graphs/1_3.html" width="100%" height="250" style="border:none;"></iframe>
-
-<iframe src="assets/data_story_graphs/1_4.html" width="100%" height="250" style="border:none;"></iframe>
+<table>
+  <tr>
+    <td>
+      <iframe src="/assets/data_story_graphs/graph1_3.html" style="width: 100%; height: 400px; border: none;"></iframe>
+    </td>
+    <td>
+      <iframe src="/assets/data_story_graphs/graph1_4.html" style="width: 100%; height: 400px; border: none;"></iframe>
+    </td>
+  </tr>
+</table>
 
 The correlation between the sentiment analysis mean scores and the ratings of the user is quite low (<0.4) and does not permit drawing conclusions on the accuracy of these factors to validate if a movie is ‘good’. Indeed, low correlation value and high spreading of the points show that a rating does not necessarily reflect the sentiment transmitted by the review. A bias that could have been expected would be to observe more positive sentiment for comedies than for other types of movies. Even though the 2 groups are significantly different, statistically speaking, comedies do not display much higher sentiment scores than other types of movies.
 
-<iframe src="assets/data_story_graphs/2_1.html" width="100%" height="400" style="border:none;"></iframe>
-
-<iframe src="assets/data_story_graphs/2_2.html" width="100%" height="400" style="border:none;"></iframe>
+<table>
+  <tr>
+    <td>
+      <iframe src="/assets/data_story_graphs/graph2_1.html" style="width: 100%; height: 400px; border: none;"></iframe>
+    </td>
+    <td>
+      <iframe src="/assets/data_story_graphs/graph2_2.html" style="width: 100%; height: 400px; border: none;"></iframe>
+    </td>
+  </tr>
+</table>
 
 **Detective:** “So you’re telling me people’s feelings don’t always match the stars they give? The correlation’s barely scratching 0.4. That’s... fishy.” 
 
@@ -76,11 +97,11 @@ To get a more balanced perspective, we examined the tradeoff between the total n
 
 ### Act 3, Scene 1: The Box Office Break-In
 
-<div style="transform: scale(0.7); transform-origin: top left; width: 100%; height: 500px; overflow: hidden;">
+<div style="transform: scale(0.8); transform-origin: top left; width: 100%; height: 500px; overflow: hidden;">
 <iframe src="assets/data_story_graphs/5.html" width="100%" height="100%" style="border:none;"></iframe>
 </div>
 
-<div style="transform: scale(0.7); transform-origin: top left; width: 100%; height: 500px; overflow: hidden;">
+<div style="transform: scale(0.8); transform-origin: top left; width: 100%; height: 500px; overflow: hidden;">
 <iframe src="assets/data_story_graphs/10.html" width="100%" height="100%" style="border:none;"></iframe>
 </div>
 
