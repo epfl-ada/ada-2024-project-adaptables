@@ -11,6 +11,7 @@ from .plots.oscars import osc_get_awrd_win_prop, osc_get_awrd_win_comp, osc_get_
 from .plots.genres import cmu_get_genres_split
 from .plots.subgenres import cmu_subgenre_get_multi_pies
 from .plots.timely import cmu_monthly_get_rev,cmu_yearly_get_dual_trends
+from .plots.plot import cmu_plots_get_topic_distributions,cmu_plots_get_money_distr
 
 # Constants
 # Dataset setups

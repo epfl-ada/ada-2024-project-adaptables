@@ -388,6 +388,21 @@ class ExtraDatasetInfo:
             mrtsa_fpath = Path(PROCESSED_DATA_DIR+"reviews_with_compound.csv") 
             assert mrtsa_fpath.exists() and mrtsa_fpath.is_file()
             self.mrtrev_sa_df = pd.read_csv(mrtsa_fpath.absolute().as_posix())
+
+            # CMU Plot topic analysis results
+            cmu_plots_topics_path = Path(PROCESSED_DATA_DIR+"cmu_topic_similarities.csv")
+            assert cmu_plots_topics_path.exists() and cmu_plots_topics_path.is_file()
+            self.cmu_plots_topics = pd.read_csv(cmu_plots_topics_path.absolute().as_posix())
+            self.topics = [
+                "society",     
+                "war",          
+                "gender",       
+                "justice",      
+                "technology",   
+                "money",     
+                "love",
+                "revolution",
+            ] # The topics the plot keywords were compared against in the cMT column
         else:
             raise ValueError("See ./data/preprocessed/README.md for an indication on how to recreate the preloaded data")
 

@@ -164,3 +164,4 @@ cython_debug/
 
 ### CUSTOM .gitignores
 rotten_tomatoes_movie_reviews.csv
+*.html
