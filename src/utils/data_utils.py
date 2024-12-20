@@ -179,6 +179,58 @@ def calculate_genre_proportions(decade_genre_pivot): # decade_proportion
     decade_proportion = decade_genre_pivot.div(decade_genre_pivot.sum(axis=1), axis=0)
     return decade_proportion
 
+def filter_comedy_movies(cmu_cleaned_movies): # cmu_comedy_movies -- sliiightly different from cmu_comedies because of the NA filtering
+    """
+    Filters the comedy movies from the dataset and removes 'Comedy' genre from the genres column.
+    Now handles NaN values in box_office_revenue.
+    """
+    cmu_comedy_movies = cmu_cleaned_movies[
+        (cmu_cleaned_movies['genres'].apply(lambda genres: 'Comedy' in genres)) &
+        (cmu_cleaned_movies['box_office_revenue'].notna())
+    ]
+    
+    cmu_comedy_movies.loc[:,'genres'] = cmu_comedy_movies['genres'].apply(
+        lambda g: [genre for genre in g if genre != 'Comedy']
+    )
+    
+    return cmu_comedy_movies
+
+def process_genre_by_country(cmu_comedy_movies, genres_per_country=10):
+    """
+    Processes the comedy movies data to calculate the count of each genre by country,
+    keeping only the top N genres for each country.
+    
+    Args:
+        cmu_comedy_movies (DataFrame): The filtered dataset of comedy movies.
+        genres_per_country (int): Number of top genres to keep per country (default: 10)
+    """
+    revenue_by_country = (cmu_comedy_movies.explode('countries')
+                         .groupby('countries')['box_office_revenue']
+                         .sum()
+                         .sort_values(ascending=False))
+
+    top_countries = revenue_by_country.head(8).index.tolist()
+
+    genre_by_country = (cmu_comedy_movies.explode('genres')
+                       .explode('countries')
+                       .query('genres != ""')
+                       .assign(genres=lambda x: x['genres'].str.strip().str.title())
+                       .groupby(['countries', 'genres'])
+                       .size()
+                       .reset_index(name='Count'))
+
+    genre_by_country_filtered = pd.DataFrame()
+    all_top_genres = set()
+    
+    for country in top_countries:
+        country_data = genre_by_country[genre_by_country['countries'] == country]
+        top_country_genres = (country_data.nlargest(genres_per_country, 'Count'))
+        genre_by_country_filtered = pd.concat([genre_by_country_filtered, top_country_genres])
+        all_top_genres.update(top_country_genres['genres'])
+    
+    return genre_by_country_filtered, top_countries, sorted(list(all_top_genres)), revenue_by_country
+
+
 # ============ ============ ============ ============ ============ ============
 # Functions used to preprocess ..
 # ============ ============ ============ ============ ============ ============
