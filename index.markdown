@@ -92,7 +92,7 @@ Despite differences in scale, one thing is clear: comedy consistently contribute
 
 ### Act 3, Scene 2: The Popularity Analysis
 
-GRAPH
+<iframe src="assets/data_story_graphs/16.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 The scatter plot illustrates the relationship between audience scores (X-axis) and critics' scores (Tomato Meter, Y-axis) for comedies. A clear positive correlation is visible, it shows significant variability and underlines the difference between experts and non-experts.
 
@@ -118,17 +118,17 @@ The scatter plot illustrates the relationship between audience scores (X-axis) a
 
 The evolution of the genres that can be found in comedy movies throughout the decades is represented in this graph. The variety of genres associated with comedies have not stopped growing since the Hollywood golden age, while some genres are always well represented throughout the year such as *comedy-drama* there are some newcomers for example the 2010’s have seen the emergence of the *Horror comedy* genre.
 
-What topics, based on plot summary analysis, are the 
+What topics, based on plot summary analysis, are the most represented ?
 
-GRAPH
+<iframe src="assets/data_story_graphs/18.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
 Evolution of movie topics
 
 *Love* and *money* emerge as a consistently prominent theme, showing a steady and positive proportion throughout the decades, reinforcing their timeless important role in the comedy genre. War exhibits a declining trend after the 1940’s, this could be due to the post-traumatic period of the second world war.
 
-GRAPH
+<iframe src="assets/data_story_graphs/20.html" style="width: 100%; height: 500px; border: none;"></iframe>
 
-Evolution of movie topics in box office revenues
+**Evolution of movie topics in box office revenues**
 
 **Detective:** "The same themes appear across all box-office revenue ranges, but their proportions vary, topics like *love* and *money* dominate in higher revenue brackets."
 
