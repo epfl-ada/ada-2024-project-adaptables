@@ -1,4 +1,5 @@
 import pandas as pd # for typing
+from .constants import NOTEBOOK_RUNCONFIG as cfg 
 
 def number_to_emoji(number: int):
     # Utilitary function to transform any number into a sequence of digit emojis
@@ -23,5 +24,6 @@ def zscore(series: pd.Series) -> pd.Series:
     return (series - mean) / std_dev
 
 def display_all_plotly_figures(fig_lst: list):
-    for f in fig_lst:
-        f.show()
+    if not cfg.USE_MATPLOTLIB:
+        for f in fig_lst:
+            f.show()

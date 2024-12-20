@@ -8,26 +8,9 @@ from ..data.project_dataset import ProjectDataset
 from .general_utils import all_valid,normalize_sa,zscore
 from pathlib import Path
 
-def prepro_cmu_movies(movies_df: pd.DataFrame) -> pd.DataFrame:
-    new_df = movies_df.copy()
-    new_df["languages"] = new_df["languages"].swifter.apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
-    new_df["countries"] = new_df["countries"].swifter.apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
-    new_df["genres"] = new_df["genres"].swifter.apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
-    def parse_release_date(release_date_str):
-        # The release date is :
-        #       either empty
-        #       or YYYY
-        #       or YYYY-MM-DD
-        # --> since we're simply inetrested in the year, we can just take the first 4 characters  
-        if isinstance(release_date_str,float):
-            return release_date_str
-        return release_date_str.strip()[:4]
-    new_df["release_date"] = pd.to_numeric(new_df["release_date"].swifter.apply(parse_release_date), errors="coerce",downcast="unsigned") # this will set a NaN wherever we don't have a date
-    return new_df
-
-# ============
+# ============ ============ ============ ============ ============ ============
 # Functions used to preprocess Massive Rotten Tomatoes reviews dataset
-# ============
+# ============ ============ ============ ============ ============ ============
 
 def mrt_standardize_score(note):
     if isinstance(note, str) and '/' in note:
@@ -61,11 +44,133 @@ def mrt_preprocess_df(df, col1, col2, merge_col, expert, comedy_ids:pd.Series, c
     return df1, df2 
 
 
-# =
-# Other
-# = 
 
-PREPROCESSED_DATA_DIR = "data/processed/"
+
+# ============ ============ ============ ============ ============ ============
+# Functions used to preprocess movie awards dataset (oscars)
+# ============ ============ ============ ============ ============ ============
+def rename_oscars_cols(oscars_df): #renamed_oscars
+    return oscars_df.rename(columns={'film':'title', 'year_film':'release_date'})
+
+
+def prepare_award_comparison_data(movies_awards_df):
+    """
+    Prepares the data for comparing total award-winning movies and award-winning comedies by country.
+    
+    Args:
+        movies_awards_df (DataFrame): DataFrame containing award data with 'winner', 'genres', and 'countries'.
+    
+    Returns:
+        DataFrame: A DataFrame with 'countries', total winning movies, and winning comedies.
+    """
+    winning_movies = movies_awards_df[movies_awards_df['winner'] == True]
+    winning_movies = winning_movies.explode('countries')
+    
+    total_award_winning = winning_movies.groupby('countries').size().reset_index(name='Winning_Movies_Total')
+    
+    winning_comedies = winning_movies[winning_movies['genres'].apply(lambda genres: 'Comedy' in genres)]
+    comedy_award_winning = winning_comedies.groupby('countries').size().reset_index(name='Winning_Comedies')
+    
+    country_comparison = total_award_winning.merge(comedy_award_winning, on='countries', how='outer').fillna(0)
+    
+    country_comparison['Winning_Movies_Total'] = country_comparison['Winning_Movies_Total'].astype(int)
+    country_comparison['Winning_Comedies'] = country_comparison['Winning_Comedies'].astype(int)
+    
+    country_comparison['Comedy_Percentage'] = (country_comparison['Winning_Comedies'] / country_comparison['Winning_Movies_Total']) * 100
+    country_comparison['Comedy_Percentage'] = country_comparison['Comedy_Percentage'].fillna(0)
+
+    country_comparison = country_comparison.sort_values(by='Comedy_Percentage', ascending=False)
+    country_comparison = country_comparison.sort_values(by='Winning_Movies_Total', ascending=False)
+    
+    return country_comparison
+
+
+
+# ============ ============ ============ ============ ============ ============
+# Functions used to preprocess CMU
+# ============ ============ ============ ============ ============ ============
+
+def prepro_cmu_movies(cmu_movies_df: pd.DataFrame) -> pd.DataFrame: # cmu_cleaned_movies
+    new_df = cmu_movies_df.copy()
+    new_df["languages"] = new_df["languages"].apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
+    new_df["countries"] = new_df["countries"].apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
+    new_df["genres"] = new_df["genres"].apply(lambda lang_dict_as_str: list(ast.literal_eval(lang_dict_as_str).values()))
+    # def parse_release_date(release_date_str):
+    #     # The release date is :
+    #     #       either empty
+    #     #       or YYYY
+    #     #       or YYYY-MM-DD
+    #     # --> since we're simply inetrested in the year, we can just take the first 4 characters  
+    #     if isinstance(release_date_str,float):
+    #         return release_date_str
+    #     return release_date_str.strip()[:4]
+    # new_df["release_date"] = pd.to_numeric(new_df["release_date"].swifter.apply(parse_release_date), errors="coerce",downcast="unsigned") # this will set a NaN wherever we don't have a date
+    new_df.loc[62836,"release_date"] = "2010-12-02"
+    new_df.loc[:,"release_date"] = pd.to_datetime(new_df.release_date,format="mixed").apply(lambda x:x.year)
+    return new_df
+
+def prepare_revenue_comparison_data(cmu_cleaned_movies):
+    """
+    Prepares the data for comparing total box office revenue and comedy box office revenue by country.
+    
+    Args:
+        cmu_cleaned_movies (DataFrame): DataFrame containing movie data with 'box_office_revenue', 'genres', and 'countries'.
+    
+    Returns:
+        DataFrame: A DataFrame with 'countries', total revenue, and comedy revenue.
+    """
+    movies_with_revenue = cmu_cleaned_movies[cmu_cleaned_movies['box_office_revenue'].notna()]
+    movies_with_revenue = movies_with_revenue.explode('countries')
+
+    total_revenue = (movies_with_revenue.groupby('countries')['box_office_revenue']
+                    .sum()
+                    .reset_index(name='Total_Revenue'))
+
+    comedy_movies = movies_with_revenue[
+        movies_with_revenue['genres'].apply(lambda genres: 'Comedy' in genres)
+    ]
+    comedy_revenue = (comedy_movies.groupby('countries')['box_office_revenue']
+                     .sum()
+                     .reset_index(name='Comedy_Revenue'))
+
+    country_comparison = total_revenue.merge(comedy_revenue, on='countries', how='outer').fillna(0)
+
+    country_comparison['Comedy_Percentage'] = (
+        country_comparison['Comedy_Revenue'] / country_comparison['Total_Revenue'] * 100
+    )
+    country_comparison['Comedy_Percentage'] = country_comparison['Comedy_Percentage'].fillna(0)
+
+    country_comparison = country_comparison.sort_values(by='Total_Revenue', ascending=False)
+
+    country_comparison['Total_Revenue_M'] = country_comparison['Total_Revenue'] / 1e6
+    country_comparison['Comedy_Revenue_M'] = country_comparison['Comedy_Revenue'] / 1e6
+    
+    return country_comparison
+
+# ============ ============ ============ ============ ============ ============
+# Functions used to preprocess ..
+# ============ ============ ============ ============ ============ ============
+
+# ============ ============ ============ ============ ============ ============
+# Functions used to preprocess ..
+# ============ ============ ============ ============ ============ ============
+
+
+# ============ ============ ============ ============ ============ ============
+# Mergers
+# ============ ============ ============ ============ ============ ============
+
+def merge_ccmu_rosc(cleaned_cmu,renamed_oscars): # movie_awards
+    movies_awards = cleaned_cmu.merge(renamed_oscars, on=['title']).drop(columns=['release_date_x'])
+    return movies_awards.rename(columns={'release_date_y':'release_date'})
+
+
+
+# ============ ============ ============ ============ ============ ============
+# ExtraDatasetInfo (parsing the processed data)
+# ============ ============ ============ ============ ============ ============
+
+PROCESSED_DATA_DIR = "data/processed/"
 
 class ExtraDatasetInfo:
     # This class will hold any additional information we infer from our base datasets
@@ -76,12 +181,12 @@ class ExtraDatasetInfo:
 
         if preload:
             # The comedy ids in the massive rottent tomatoes dataset \inter CMU, where experts have given their opinions  
-            mrtexp_fpath = Path(PREPROCESSED_DATA_DIR+"ratings_expert.csv") 
+            mrtexp_fpath = Path(PROCESSED_DATA_DIR+"ratings_expert.csv") 
             assert mrtexp_fpath.exists() and mrtexp_fpath.is_file()
             self.mrt_cmu_expertrevd_comedy_ids = pd.read_csv(mrtexp_fpath.absolute().as_posix())["id"]
         
             # The massive RT dataset, extended with a sentiment analysis score for the entries with a review (~1.3M out of the 1.4M reviews):
-            mrtsa_fpath = Path(PREPROCESSED_DATA_DIR+"reviews_with_compound.csv") 
+            mrtsa_fpath = Path(PROCESSED_DATA_DIR+"reviews_with_compound.csv") 
             assert mrtsa_fpath.exists() and mrtsa_fpath.is_file()
             self.mrtrev_sa_df = pd.read_csv(mrtsa_fpath.absolute().as_posix())
         else:

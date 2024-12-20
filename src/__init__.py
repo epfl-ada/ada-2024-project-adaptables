@@ -7,6 +7,7 @@ from .data.project_dataset import ProjectDataset, describe_datasets, preload_dat
 from .utils.data_utils import ExtraDatasetInfo
 from .plots.sentiment_analysis import mrt_get_scatterplots, mrt_get_boxplots
 from .utils.general_utils import display_all_plotly_figures as show_all
+from .plots.oscars import osc_get_awrd_win_prop, osc_get_awrd_win_comp, osc_get_prop_bo_per_country, osc_get_total_bo_per_country
 
 # Constants
 # Dataset setups

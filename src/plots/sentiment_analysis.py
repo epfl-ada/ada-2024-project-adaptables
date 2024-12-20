@@ -8,150 +8,149 @@ from functools import partial, cache
 from ..utils.data_utils import mrt_preprocess_df
 import matplotlib.pyplot as plt
 import seaborn as sns
+from ..utils.constants import NOTEBOOK_RUNCONFIG as cfg
+
+if cfg.USE_MATPLOTLIB:
+    ## MATPLOTLIB VERSION
+    def scatter_plot_corr(df_tuple, col1, col2, merge_col, movie_type):
+        df1,df2 = df_tuple 
+        df_corr = pd.merge(df1, df2, on=merge_col)
+        
+        #correlation_value = df_corr[col1].corr(df_corr[col2])
+        correlation_value, p_value = pearsonr(df_corr[col1], df_corr[col2]) 
+        f = plt.figure(figsize=(8, 6))
+        sns.regplot(x = col1, y = col2, data= df_corr, ci=None, line_kws={"color": "red"})
+        plt.title(f"Scatter Plot with correlation {movie_type}: {correlation_value:.2f}")
+        plt.xlabel(col1)
+        plt.ylabel(col2)
+        return f
 
 
-## PLOTLY VERSION
 
-def scatter_plot_corr(df_tuple, col1, col2, merge_col, movie_type):
-    df1, df2 = df_tuple
-    df_corr = pd.merge(df1, df2, on=merge_col)
-    
-    correlation_value, _ = pearsonr(df_corr[col1], df_corr[col2])
-    
-    # Regression line
-    x = df_corr[col1]
-    y = df_corr[col2]
-    z = np.polyfit(x, y, 1)
-    p = np.poly1d(z)
-    
-    # Create scatter plot
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=x,
-        y=y,
-        mode='markers',
-        name='Data points',
-        marker=dict(
-            color='blue',
-            size=8
-        )
-    ))
-    
-    # Add regression line
-    fig.add_trace(go.Scatter(
-        x=x,
-        y=p(x),
-        mode='lines',
-        name='Regression line',
-        line=dict(color='red')
-    ))
-    
-    # Update layout
-    fig.update_layout(
-        title=f"Scatter Plot with correlation {movie_type}: {correlation_value:.2f}",
-        xaxis_title=col1,
-        yaxis_title=col2,
-        showlegend=True,
-        height=600,
-        width=800
-    )
-    
-    return fig
+    def ttest_and_boxplot (df_comedy_tuple, df_not_comedy_tuple, column, expert_str):
+        
+        df_comedy_score, df_comedy_sa = df_comedy_tuple
+        df_not_comedy_score, df_not_comedy_sa = df_not_comedy_tuple
+        comedies = df_comedy_sa[column]
+        not_comedies = df_not_comedy_sa[column]
 
-def ttest_and_boxplot(df_comedy_tuple, df_not_comedy_tuple, column, expert_str):
-    df_comedy_score, df_comedy_sa = df_comedy_tuple
-    df_not_comedy_score, df_not_comedy_sa = df_not_comedy_tuple
-    
-    comedies = df_comedy_sa[column]
-    not_comedies = df_not_comedy_sa[column]
-    
-    # Perform t-test
-    t_stat, p_value = ttest_ind(comedies, not_comedies, equal_var=False)
-    
-    # Temporary dfs used for the visualization only
-    comedies_df = pd.DataFrame({column: comedies, 'Group': 'Comedy'})
-    not_comedies_df = pd.DataFrame({column: not_comedies, 'Group': 'Non-Comedy'})
-    combined_df = pd.concat([comedies_df, not_comedies_df])
-    summary_stats = combined_df.groupby('Group')[column]
+        t_stat, p_value = ttest_ind(comedies, not_comedies, equal_var=False)
+        print(f"T-Statistic: {t_stat:.2f}")
+        print(f"P-Value: {p_value:.4f}")
 
-    # Create box plots for each group
-    fig = go.Figure()
-    for group in ['Comedy', 'Non-Comedy']:
-        fig.add_trace(go.Box(
-            y=combined_df[combined_df['Group'] == group][column],
-            name=group,
-            boxpoints='outliers'
+        if p_value < 0.05:
+            print("Conclusion: Significant difference between the two groups.")
+        else:
+            print("Conclusion: No significant difference between the two groups.")
+        
+        comedies_df = pd.DataFrame({column: comedies, 'Group': 'Comedy'})
+        not_comedies_df = pd.DataFrame({column: not_comedies, 'Group': 'Non-Comedy'})
+        combined_df = pd.concat([comedies_df, not_comedies_df])
+
+        
+        summary_stats = combined_df.groupby('Group')[column].describe()
+        print(summary_stats)
+
+        f = plt.figure(figsize=(8, 6))
+        sns.boxplot(x='Group', y=column, data=combined_df, palette='coolwarm')
+        plt.title(f"{column} distribution of {expert_str}  : Comedy vs. Non-Comedy")
+        plt.xlabel("Movie Type")
+        plt.ylabel(column)
+        return f
+else:
+    ## PLOTLY VERSION
+
+    def scatter_plot_corr(df_tuple, col1, col2, merge_col, movie_type):
+        df1, df2 = df_tuple
+        df_corr = pd.merge(df1, df2, on=merge_col)
+        
+        correlation_value, _ = pearsonr(df_corr[col1], df_corr[col2])
+        
+        # Regression line
+        x = df_corr[col1]
+        y = df_corr[col2]
+        z = np.polyfit(x, y, 1)
+        p = np.poly1d(z)
+        
+        # Create scatter plot
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(
+            x=x,
+            y=y,
+            mode='markers',
+            name='Data points',
+            marker=dict(
+                color='blue',
+                size=8
+            )
         ))
-    
-    # Update layout
-    fig.update_layout(
-        title=f"{column} distribution of {expert_str}: Comedy vs. Non-Comedy<br>"+
-              f"T-Statistic: {t_stat:.2f}, P-Value: {p_value:.4f}",
-        xaxis_title="Movie Type",
-        yaxis_title=column,
-        height=600,
-        width=800
-    )
-    
-    # Print statistical results
-    print(f"T-Statistic: {t_stat:.2f}")
-    print(f"P-Value: {p_value:.4f}")
-    print("Conclusion:", "Significant difference between the two groups." if p_value < 0.05 
-          else "No significant difference between the two groups.")
-    print("\nSummary Statistics:")
-    print(summary_stats.describe())
-    
-    return fig
+        
+        # Add regression line
+        fig.add_trace(go.Scatter(
+            x=x,
+            y=p(x),
+            mode='lines',
+            name='Regression line',
+            line=dict(color='red')
+        ))
+        
+        # Update layout
+        fig.update_layout(
+            title=f"Scatter Plot with correlation {movie_type}: {correlation_value:.2f}",
+            xaxis_title=col1,
+            yaxis_title=col2,
+            showlegend=True,
+            height=600,
+            width=800
+        )
+        
+        return fig
 
+    def ttest_and_boxplot(df_comedy_tuple, df_not_comedy_tuple, column, expert_str):
+        df_comedy_score, df_comedy_sa = df_comedy_tuple
+        df_not_comedy_score, df_not_comedy_sa = df_not_comedy_tuple
+        
+        comedies = df_comedy_sa[column]
+        not_comedies = df_not_comedy_sa[column]
+        
+        # Perform t-test
+        t_stat, p_value = ttest_ind(comedies, not_comedies, equal_var=False)
+        
+        # Temporary dfs used for the visualization only
+        comedies_df = pd.DataFrame({column: comedies, 'Group': 'Comedy'})
+        not_comedies_df = pd.DataFrame({column: not_comedies, 'Group': 'Non-Comedy'})
+        combined_df = pd.concat([comedies_df, not_comedies_df])
+        summary_stats = combined_df.groupby('Group')[column]
 
-### PLT version
+        # Create box plots for each group
+        fig = go.Figure()
+        for group in ['Comedy', 'Non-Comedy']:
+            fig.add_trace(go.Box(
+                y=combined_df[combined_df['Group'] == group][column],
+                name=group,
+                boxpoints='outliers'
+            ))
+        
+        # Update layout
+        fig.update_layout(
+            title=f"{column} distribution of {expert_str}: Comedy vs. Non-Comedy<br>"+
+                f"T-Statistic: {t_stat:.2f}, P-Value: {p_value:.4f}",
+            xaxis_title="Movie Type",
+            yaxis_title=column,
+            height=600,
+            width=800
+        )
+        
+        # Print statistical results
+        print(f"T-Statistic: {t_stat:.2f}")
+        print(f"P-Value: {p_value:.4f}")
+        print("Conclusion:", "Significant difference between the two groups." if p_value < 0.05 
+            else "No significant difference between the two groups.")
+        print("\nSummary Statistics:")
+        print(summary_stats.describe())
+        
+        return fig
 
-
-# def scatter_plot_corr(df_tuple, col1, col2, merge_col, movie_type):
-#     df1,df2 = df_tuple 
-#     df_corr = pd.merge(df1, df2, on=merge_col)
-    
-#     #correlation_value = df_corr[col1].corr(df_corr[col2])
-#     correlation_value, p_value = pearsonr(df_corr[col1], df_corr[col2]) 
-#     f = plt.figure(figsize=(8, 6))
-#     sns.regplot(x = col1, y = col2, data= df_corr, ci=None, line_kws={"color": "red"})
-#     plt.title(f"Scatter Plot with correlation {movie_type}: {correlation_value:.2f}")
-#     plt.xlabel(col1)
-#     plt.ylabel(col2)
-#     return f
-
-
-
-# def ttest_and_boxplot (df_comedy_tuple, df_not_comedy_tuple, column, expert_str):
-    
-#     df_comedy_score, df_comedy_sa = df_comedy_tuple
-#     df_not_comedy_score, df_not_comedy_sa = df_not_comedy_tuple
-#     comedies = df_comedy_sa[column]
-#     not_comedies = df_not_comedy_sa[column]
-
-#     t_stat, p_value = ttest_ind(comedies, not_comedies, equal_var=False)
-#     print(f"T-Statistic: {t_stat:.2f}")
-#     print(f"P-Value: {p_value:.4f}")
-
-#     if p_value < 0.05:
-#         print("Conclusion: Significant difference between the two groups.")
-#     else:
-#         print("Conclusion: No significant difference between the two groups.")
-    
-#     comedies_df = pd.DataFrame({column: comedies, 'Group': 'Comedy'})
-#     not_comedies_df = pd.DataFrame({column: not_comedies, 'Group': 'Non-Comedy'})
-#     combined_df = pd.concat([comedies_df, not_comedies_df])
-
-    
-#     summary_stats = combined_df.groupby('Group')[column].describe()
-#     print(summary_stats)
-
-#     f = plt.figure(figsize=(8, 6))
-#     sns.boxplot(x='Group', y=column, data=combined_df, palette='coolwarm')
-#     plt.title(f"{column} distribution of {expert_str}  : Comedy vs. Non-Comedy")
-#     plt.xlabel("Movie Type")
-#     plt.ylabel(column)
-#     return f
 
 # @cache would have been very relevant -- unfortunately, it is not possible without monkey patching a custom dataframe hash
 def _mrt_get_dfs(sa_df,col1, col2, merge_col,ci_df):
