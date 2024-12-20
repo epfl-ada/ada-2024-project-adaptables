@@ -18,10 +18,6 @@ navigation:
 author: Quentin GALLIEN, Victor GARVALOV, Théo LE BLAN, Arthur REMOVILLE, Caroline VERCHERE
 
 title_separator          : "-"
-titles_from_headings:
-  enabled:     true
-  strip_title: false
-  collections: false
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
@@ -180,7 +176,6 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-titles-from-headings
-
+  
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
