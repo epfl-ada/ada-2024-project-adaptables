@@ -161,11 +161,15 @@ The success of comedy genres varies significantly based on the cultural and regi
 
 Average revenue of the duos with most collaborations
 
-GRAPH
+<div style="text-align: center;">
+  <img src="assets/data_story_graphs/newplot2.png" alt="Illustration6" width="400">
+</div>
 
 One-time duos that generated more revenues 
 
-GRAPH
+<div style="text-align: center;">
+  <img src="assets/data_story_graphs/newplot.png" alt="Illustration6" width="400">
+</div>
 
 GRAPH
 
@@ -189,7 +193,9 @@ Features:
 
 The data reveals a common trend: sequels often experience a decline in popularity over time, reflected in progressively lower audience scores.
 
-GRAPH
+<div style="text-align: center;">
+  <img src="assets/data_story_graphs/output6.png" alt="Illustration6" width="400">
+</div>
 
 The dynamic graph charts the evolution of audience scores across movie franchises and their sequels. On the horizontal axis, we see movie titles paired with their release years, while the vertical axis tracks audience scores. Each point represents a sequel group, with bubble sizes reflecting the number of films in each category.
 
@@ -260,8 +266,6 @@ Interestingly, since the 1980s, the proportion of comedy movies released has bee
 </div>
 
 <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
-
-*The screen fades to black, with the words: “Coming Soon: The Ultimate Comedy”*
 
 ## References
 
