@@ -25,7 +25,7 @@ title: "The Comedy Conspiracy: A Data-Driven Mystery"
 
 The correlation between the sentiment analysis mean scores and the ratings of the user is quite low (<0.4) and does not permit drawing conclusions on the accuracy of these factors to validate if a movie is ‘good’. Indeed, low correlation value and high spreading of the points show that a rating does not necessarily reflect the sentiment transmitted by the review. A bias that could have been expected would be to observe more positive sentiment for comedies than for other types of movies. Even though the 2 groups are significantly different, statistically speaking, comedies do not display much higher sentiment scores than other types of movies.
 
-<iframe src="assets/data_story_graphs/2.html" width="100%" height="500" style="border:none;"></iframe>
+GRAPH2
 
 **Detective:** “So you’re telling me people’s feelings don’t always match the stars they give? The correlation’s barely scratching 0.4. That’s... fishy.” 
 
@@ -46,7 +46,7 @@ While comedies are generally thought to spread joy, sentiment analysis shows the
 
 ### Act 2, Scene 1: The Award Alibi
 
-<iframe src="assets/data_story_graphs/3.html" width="100%" height="500" style="border:none;"></iframe>
+GRAPH3
 
 **Analyst:** “Look at this—100% of Oscar-winning films from Slovenia are comedies. Impressive, until you realize… they’ve only won one Oscar.”
 
@@ -66,13 +66,17 @@ To get a more balanced perspective, we examined the tradeoff between the total n
 
 ### Act 3, Scene 1: The Box Office Break-In
 
-<iframe src="assets/data_story_graphs/4.html" width="100%" height="500" style="border:none;"></iframe>
+GRAPH4
 
 **Analyst:** “The USA dominates in absolute dollars, but Serbia’s punching above its weight in comedy percentages. Small fish, big laughs.”
 
 Comedy consistently contributes to box office revenues across countries, with some nations showing particularly strong reliance on this genre.Even though comedies revenues represent a smaller percentage of the United States box office revenues than Serbia or Montenegro, in absolute value  it is still more profitable to make a comedy in the USA, since the United State of America produces such an important part of the movies.
 
 Despite differences in scale, one thing is clear: comedy consistently contributes to box office success worldwide. But financial triumph doesn’t always align with critical acclaim. The team devises a “Popularity Score” to crack the code.
+
+<div style="text-align: center;">
+  <img src="assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 100px; margin-left: 20px;">
+</div>
 
 **Detective:** "Indeed the money is important, but in order to measure the success of a comedy shouldn’t we also look at its popularity?"
 
@@ -94,21 +98,21 @@ Despite differences in scale, one thing is clear: comedy consistently contribute
 
 **Narrator:** "Throughout the age of cinema the trends have evolved, we need to be up to date with the comedy movie landscape in order to make the best of the situation."
 
-<iframe src="assets/data_story_graphs/5.html" width="100%" height="500" style="border:none;"></iframe>
+GRAPH5
 
 We can see the evolution of the genres that can be found in comedy movies throughout the decades. The variety of genres associated with comedies have not stopped growing since the Hollywood golden age, while some genres are always well represented throughout the year such as comedy-drama there are some newcomers for example the 2010’s have seen the emergence of the Horror comedy genre.
 
 What topics, based on plot summary analysis, are the 
 
-<iframe src="assets/data_story_graphs/6.html" width="100%" height="500" style="border:none;"></iframe> 
+GRAPH6
 
 **VS**
 
- <iframe src="assets/data_story_graphs/7.html" width="100%" height="500" style="border:none;"></iframe>
+GRAPH7
 
 Evolution of movie topics
 
-<iframe src="assets/data_story_graphs/8.html" width="100%" height="500" style="border:none;"></iframe>
+GRAPH8
 
 Evolution of movie topics in box office revenues
 
@@ -123,6 +127,10 @@ GRAPH10
 GRAPH11
 
 The success of comedy genres varies significantly based on the cultural and regional context in which a movie is produced. For instance, if we aim to produce a successful comedy in the USA, a romantic comedy would maximize our chances of success. Conversely, in France, a comedy-drama would be the ideal choice, it certainly aligns better with the tastes of the French viewers. Understanding these regional nuances is crucial for tailoring comedic elements to the audience's cultural expectations.
+
+<div style="text-align: center;">
+  <img src="assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 100px; margin-left: 20px;">
+</div>
 
 **Detective:** "Comedy is a chameleon—it changes its colors depending on where it’s born. In the U.S., love gets the laughs, but in France, it’s the drama that seals the deal."
 
@@ -172,6 +180,10 @@ Insights:
 - Survival of the fittest: Beyond Sequel 2, only the most successful franchises endure. By Sequel 3, the pool shrinks to just 14 films, and numbers dwindle further for Sequels 4 and 5.
 - Lessons from the data: Franchises often lose their charm with sequels, leading studios to discontinue less popular series. Yet, those that retain audience favor evolve into iconic multi-sequel sagas.
 
+<div style="text-align: center;">
+  <img src="assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 100px; margin-left: 20px;">
+</div>
+
 **Detective:** "The numbers don’t lie—most sequels struggle to keep audiences entertained. But those that succeed? They redefine cinematic legacy."
 
 <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
@@ -182,7 +194,7 @@ Insights:
 ### Act 5, Scene 1: The Title Trap
 
 <div style="text-align: center;">
-  <img src="assets/img/Perfect_title.png" alt="Illustration5" width="500">
+  <img src="assets/img/Perfect_title.png" alt="Illustration5" width="400">
 </div>
 
 ****Detective:**"A title’s like a first impression, choose the right words, and you could get the audience attention before the first laugh."
@@ -200,7 +212,7 @@ Frequently occurring humor-related keywords, such as Adventure, Love, and Crazy,
 ### Act 5, Scene 2: Timing Is Everything !
 
 <div style="text-align: center;">
-  <img src="assets/img/Calendar_june.png" alt="Illustration6" width="500">
+  <img src="assets/img/Calendar_june.png" alt="Illustration6" width="400">
 </div>
 
 **Narrator:** "When it comes to box office success, timing can make or break a movie."
@@ -212,6 +224,10 @@ From the graph, it’s evident that releasing a movie in June significantly boos
 GRAPH19
 
 Interestingly, since the 1980s, the proportion of comedy movies released has been relatively low compared to their contribution to box office revenues. This imbalance highlights the genre’s enduring popularity and profitability, showing that comedies remain a lucrative choice for filmmakers.
+
+<div style="text-align: center;">
+  <img src="assets/img/detective_sticker.png" alt="Illustration2" style="float: right; width: 100px; margin-left: 20px;">
+</div>
 
 **Detective:** "June’s the sweet spot—and comedy, it seems, has been pulling its weight and then some."
 
